@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const issuesURL = "http://localhost:8000/issue/"
+const cupcakeURL = "http://localhost:8000/cupcake/"
 
-export function loadIssues(){
+export function loadOrders(){
   return(dispatch)=>{
-    axios.get(issuesURL).then((response)=>{
+    axios.get(cupcakeURL).then((response)=>{
       dispatch({
-        type: "LOAD_ISSUES",
+        type: "LOAD_ORDERS",
         issues: response.data
       })
     })
@@ -16,22 +16,22 @@ export function loadIssues(){
   }
 }
 
-export function addIssue(issue){
+export function addOrder(issue){
   return (dispatch)=>{
-    axios.post(issuesURL, issue).then((response)=>{
+    axios.post(cupcakeURL, issue).then((response)=>{
       dispatch({
-        type: "ADD_ISSUE",
+        type: "ADD_ORDER",
         issue: response.data
       })
     })
   }
 }
 
-export function deleteIssue(id){
+export function deleteOrder(id){
   return (dispatch)=>{
-    axios.delete(issuesURL+id).then((response)=>{
+    axios.delete(cupcakeURL+id).then((response)=>{
       dispatch({
-        type: "DELETE_ISSUE",
+        type: "DELETE_ORDER",
         id
       })
     })
@@ -41,12 +41,12 @@ export function deleteIssue(id){
   }
 }
 
-export function editIssue(id, editedIssue){
+export function editOrder(id, editedOrder){
   return (dispatch)=>{
-    axios.put(issuesURL+id, editedIssue).then((response)=>{
+    axios.put(cupcakeURL+id, editedOrder).then((response)=>{
       dispatch({
-        type: "EDIT_ISSUE",
-        editedIssue: response.data,
+        type: "EDIT_ORDER",
+        editedOrder: response.data,
         id
       })
     })
@@ -59,10 +59,10 @@ export function editIssue(id, editedIssue){
 export function likes(issue){
   const update = {likes: issue.likes + 1}
   return (dispatch)=>{
-    axios.put(issuesURL+issue._id, update).then((response)=>{
+    axios.put(cupcakeURL+issue._id, update).then((response)=>{
       dispatch({
         type: "LIKES",
-        editedIssue: response.data
+        editedOrder: response.data
       });
     })
     .catch((err)=>{
@@ -74,10 +74,10 @@ export function likes(issue){
 export function dislikes(issue){
   const update = {dislikes: issue.dislikes + 1}
   return (dispatch)=>{
-    axios.put(issuesURL+issue._id, update).then((response)=>{
+    axios.put(cupcakeURL+issue._id, update).then((response)=>{
       dispatch({
         type: "DISLIKES",
-        editedIssue: response.data
+        editedOrder: response.data
       });
     })
     .catch((err)=>{

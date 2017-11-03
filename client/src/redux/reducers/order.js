@@ -1,21 +1,20 @@
-const issues = function(prevIssues = [], action){
-  let newIssues = [...prevIssues];
-  console.log(newIssues);
+const currentOrder = function(prevOrder = [], action){
+  let newOrder = [...prevOrder];
   switch(action.type){
-    case "ADD_ISSUE":
-      newIssues.unshift(action.issue)
-      return newIssues;
+    case "ADD_ORDER":
+      newOrder.unshift(action.issue)
+      return newOrder;
     
-    case "LOAD_ISSUES":
-      return action.issues;
+    case "LOAD_ORDERS":
+      return action.currentOrder;
     
-    case "DELETE_ISSUE":
-      return newIssues.filter((issue)=>{
+    case "DELETE_ORDER":
+      return newOrder.filter((issue)=>{
         return action.id !== issue._id;
       })
     
-    case "EDIT_ISSUE":
-      return newIssues.map((issue)=>{
+    case "EDIT_ORDER":
+      return newOrder.map((issue)=>{
         if(action.id === issue._id){
           return action.editedIssue;
         } else {
@@ -24,7 +23,7 @@ const issues = function(prevIssues = [], action){
       });
       
     case "LIKES":
-      return prevIssues.map(issue => {
+      return prevOrder.map(issue => {
         if (issue._id === action.editedIssue._id) {
           return action.editedIssue;
         }
@@ -32,7 +31,7 @@ const issues = function(prevIssues = [], action){
       });
       
     case "DISLIKES":
-    return prevIssues.map(issue => {
+    return prevOrder.map(issue => {
       if (issue._id === action.editedIssue._id) {
         return action.editedIssue;
       }
@@ -40,8 +39,8 @@ const issues = function(prevIssues = [], action){
     });
       
     default:
-      return prevIssues
+      return prevOrder
   }
 }
 
-export default issues;
+export default currentOrder;

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import CupcakesComponent from "./Component"
 import axios from "axios";
 
@@ -12,7 +12,7 @@ class CupcakesContainer extends React.Component{
       cupcakes: []
     }
     
-    this.generateLinks = this.generateLinks.bind(this);
+    // this.generateLinks = this.generateLinks.bind(this);
     this.searchById = this.searchById.bind(this);
   }
   
@@ -39,16 +39,26 @@ class CupcakesContainer extends React.Component{
       })
   }
   
-  generateLinks(){
-  return this.state.cupcakes.map((cupcake)=>{
-      return <Link to={`/cupcakes/${cupcake._id}`} key={cupcake._id}>{cupcake.title}</Link>
+  // generateLinks(){
+  // return this.state.cupcakes.map((cupcake)=>{
+  //     return <Link to={`/cupcakes/${cupcake._id}`} key={cupcake._id}>{cupcake.title}</Link>
+  //   })
+  // }
+  
+  genList(){
+    return this.state.cupcakes.map((item)=>{
+      return (
+        <CupcakesComponent cupcake={item} key={item._id} />
+      )
     })
   }
   
-  render(){
+  render(props){
     return(
-          <CupcakesComponent generateLinks={this.generateLinks}
-                              searchById={this.searchById}/>
+      <div className="foodMenu">
+          {this.genList()}
+          <button>Place Order</button>
+      </div>
     )
   }
 }

@@ -1,12 +1,13 @@
 .app-wrapper{
-  text-align: center;
+
 }
 
 .navbar{
+  text-align: center;
   margin:auto;
   display: flex;
   justify-content: space-between;
-  background-color: #EAC1CC;
+  background-color: #DEE5F2;
   padding-left: 10%;
   padding-right: 10%;
   height: 100px;
@@ -18,33 +19,47 @@
   font-family: cursive;
 }
 .home{
-  height: 700px;
+  height: 100vh;
   background-color: rgba(255,0,0, 0.5);
   padding-top: 10%;
+  text-align: center;
+}
+.foodMenu{
+  background-color: rgba(255,0,0, 0.3);
 }
 
-.cupcakeLinks{
-  position: fixed;
-  display: flex;
-  flex-direction: column;
+.cupcakesBox{
   background-color: rgba(255,0,0, 0.3);
   font-size: 2em;
-  height: 100%;
-
+  height: 500px;
+  display: inline-block;
+  text-align: center;
+  padding: 1%;
+  border: 1px solid black;
+  width: 25%;
+  vertical-align: top;
 }
-
-.cupcakeLinks a {
+.cupcakePic{
+  width: 140px;
+}
+.cupcakes a {
   text-decoration: none;
   color: red;
     margin: 10% 10px 10% 20px;
 }
 
-.cupcakes{
-  height: 700px;
-  background-color: rgba(255,0,0, 0.5);
-    padding-top: 10%;
-    
+button{
+  font-size: 20px;
+  border-radius: 40%;
+  background-color: white;
 }
+
+/*.cupcakes{
+  height: 700px;
+  background-color: #B8D3D4;
+  padding-top: 10%;
+    
+}*/
 .about{
   height: 700px;
   background-color: rgba(0,0,255, 0.5);

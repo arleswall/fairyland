@@ -1,12 +1,12 @@
-import issues from "./issues";
+import order from "./order";
 
 let state = {
-  issues: []
+  currentOrder: []
 }
 
 function reducer(prevState=state, action){
   return{
-    issues: issues(prevState.issues, action)
+    currentOrder: currentOrder(prevState.currentOrder, action)
   }
 }
 

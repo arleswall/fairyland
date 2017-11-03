@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 
 let cupcakeSchema = new Schema({
+  picture: {
+    type: String
+  },
   title: {
     type: String,
     required: true
@@ -11,8 +14,8 @@ let cupcakeSchema = new Schema({
     type: String
   },
   price: {
-    type: Number,
-    required: true
+    regular: Number,
+    mini: Number
   }
 })
 
