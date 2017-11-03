@@ -1,0 +1,73 @@
+.app-wrapper{
+  text-align: center;
+}
+
+.navbar{
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EAC1CC;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 100px;
+  font-size: 2em;
+  font-family: courier;
+}
+.orderButton{
+  font-size: 4em;
+  font-family: cursive;
+}
+.home{
+  height: 700px;
+  background-color: rgba(255,0,0, 0.5);
+  padding-top: 10%;
+}
+
+.cupcakeLinks{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255,0,0, 0.3);
+  font-size: 2em;
+  height: 100%;
+
+}
+
+.cupcakeLinks a {
+  text-decoration: none;
+  color: red;
+    margin: 10% 10px 10% 20px;
+}
+
+.cupcakes{
+  height: 700px;
+  background-color: rgba(255,0,0, 0.5);
+    padding-top: 10%;
+    
+}
+.about{
+  height: 700px;
+  background-color: rgba(0,0,255, 0.5);
+    padding-top: 10%;
+}
+.contact{
+  height: 700px;
+  background-color: yellow;
+    padding-top: 10%;
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+  height: 50px;
+  background-color: orange;
+  font-size: 2em;
+}
+
+.logo {
+  width: 20%;
+}
