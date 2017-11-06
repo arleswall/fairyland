@@ -23,15 +23,6 @@ class CupcakesContainer extends React.Component{
         })
       })
     }
-          //this.loadData();
-  
-  //loadData(){
-  //axios.get(APIurl).then((response)=>{
-  //this.setState({
-//  cupcakes: response.data.results
-// })
-// })
-// }
   
   searchById(id){
      return this.state.cupcakes.find((cupcake)=>{
@@ -53,11 +44,15 @@ class CupcakesContainer extends React.Component{
     })
   }
   
+  placeOrder(){
+    
+  }
+  
   render(props){
     return(
       <div className="foodMenu">
           {this.genList()}
-          <button>Place Order</button>
+          <button onClick={this.placeOrder}>Place Order</button>
       </div>
     )
   }

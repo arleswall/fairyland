@@ -2,6 +2,9 @@
 
 }
 
+a:link{
+  text-decoration: none;
+}
 .navbar{
   text-align: center;
   margin:auto;
@@ -14,15 +17,41 @@
   font-size: 2em;
   font-family: courier;
 }
+
+
 .orderButton{
-  font-size: 4em;
-  font-family: cursive;
+  border: 3px solid #79B6C1;
+  color: #79B6C1;
+  background-color: transparent;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 1em 2em;
+  transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+}
+
+.orderButton:hover{
+  background-color: #ECC2CE;
+  color: #6F614D;
+  border: none;
 }
 .home{
   height: 100vh;
-  background-color: rgba(255,0,0, 0.5);
+  background-image: url("./background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 10%;
   text-align: center;
+}
+
+.socialmediabox{
+  margin-top: 15%;
+}
+
+.socialmediaLinks{
+  margin: 2%
 }
 .foodMenu{
   background-color: rgba(255,0,0, 0.3);
@@ -37,7 +66,7 @@
   padding: 1%;
   border: 1px solid black;
   width: 25%;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .cupcakePic{
   width: 140px;
@@ -61,14 +90,16 @@ button{
     
 }*/
 .about{
-  height: 700px;
-  background-color: rgba(0,0,255, 0.5);
+  height: 100vh;
+  background-color: #ECC2CE;
     padding-top: 10%;
+    text-align: center;
 }
 .contact{
   height: 700px;
   background-color: yellow;
     padding-top: 10%;
+    text-align: center;
 }
 
 .footer {
@@ -76,11 +107,11 @@ button{
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #efefef;
+  color: #79B5C4;
   text-align: center;
   height: 50px;
-  background-color: orange;
   font-size: 2em;
+  background-color: #ECC2CE;
 }
 
 .logo {

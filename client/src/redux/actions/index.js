@@ -1,10 +1,8 @@
-import {loadOrders, addOrder, deleteOrder, editOrder, likes, dislikes} from "./issues.js";
+import {addItem, addMini, removeItem, removeMini} from "./cupcakes.js";
 
-export const issues = {
-  loadOrders,
-  addOrder,
-  deleteOrder,
-  editOrder,
-  likes,
-  dislikes
+export const cupcakes = {
+  addItem,
+  addMini,
+  removeItem,
+  removeMini
 }
