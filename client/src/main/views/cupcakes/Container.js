@@ -2,18 +2,16 @@ import React from "react";
 // import {Link} from "react-router-dom";
 import CupcakesComponent from "./Component"
 import axios from "axios";
-
-// const APIurl = "apiurl"
+import {connect} from "react-redux";
+import {cupcakes} from "../../../redux/actions/"
 
 class CupcakesContainer extends React.Component{
   constructor(){
     super();
     this.state = {
-      cupcakes: []
+      cupcakes: [],
+      order: {}
     }
-    
-    // this.generateLinks = this.generateLinks.bind(this);
-    this.searchById = this.searchById.bind(this);
   }
   
   componentDidMount(){
@@ -24,18 +22,7 @@ class CupcakesContainer extends React.Component{
       })
     }
   
-  searchById(id){
-     return this.state.cupcakes.find((cupcake)=>{
-        return id === cupcake._id
-      })
-  }
-  
-  // generateLinks(){
-  // return this.state.cupcakes.map((cupcake)=>{
-  //     return <Link to={`/cupcakes/${cupcake._id}`} key={cupcake._id}>{cupcake.title}</Link>
-  //   })
-  // }
-  
+
   genList(){
     return this.state.cupcakes.map((item)=>{
       return (
@@ -44,18 +31,22 @@ class CupcakesContainer extends React.Component{
     })
   }
   
-  placeOrder(){
-    
-  }
+
   
   render(props){
     return(
       <div className="foodMenu">
           {this.genList()}
-          <button onClick={this.placeOrder}>Place Order</button>
+          <button>Review Order</button>
       </div>
     )
   }
 }
 
-export default CupcakesContainer;
+const mapStateToProps = (state)=>{
+  return {
+    order: state.order
+  }
+}
+
+export default connect(mapStateToProps, cupcakes) (CupcakesContainer);

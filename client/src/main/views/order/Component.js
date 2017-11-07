@@ -1,10 +1,9 @@
 import React from "react";
 
-function OrderComponent() {
+function OrderComponent(props) {
   return(
-    <div>
-          <button>Go back make changes</button>
-          <button>Confirm the order</button>
+    <div>        
+          <h4>{props.items}</h4>
     </div>
   )
 }

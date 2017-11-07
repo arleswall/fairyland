@@ -1,4 +1,5 @@
 import cupcakes from "./cupcakes";
+import order from "./cupcakes"
 
 let state = {
   cupcakes: [],
@@ -7,7 +8,8 @@ let state = {
 
 function reducer(prevState=state, action){
   return{
-    cupcakes: cupcakes(prevState.cupcakes, action)
+    cupcakes: cupcakes(prevState.cupcakes, action),
+    order: order(prevState.order, action)
   }
 }
 

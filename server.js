@@ -18,6 +18,7 @@ mongoose.connect("mongodb://localhost/cupcake", (err)=>{
 })
 
 app.use("/cupcake", require("./routes/cupcakeRoutes"))
+app.use("/order", require("./routes/orderRoutes"))
 
 app.listen(port, ()=>{
   console.log(`this server is runnning on port ${port}`)
