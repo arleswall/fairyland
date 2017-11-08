@@ -1,9 +1,10 @@
 import React from "react";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import CupcakesComponent from "./Component"
 import axios from "axios";
 import {connect} from "react-redux";
-import {cupcakes} from "../../../redux/actions/"
+// import * as actions from "../../../redux/orders";
+// import OrderComponent from "../order/Component";
 
 class CupcakesContainer extends React.Component{
   constructor(){
@@ -31,22 +32,27 @@ class CupcakesContainer extends React.Component{
     })
   }
   
-
+  // reviewOrder(){
+  //   return this.state.order.items.map((item)=>{
+  //     return (
+  //       <OrderComponent items={item} key={item._id} />
+  //     )
+  //   })
+  // }
   
-  render(props){
+  
+  render(){
     return(
       <div className="foodMenu">
           {this.genList()}
-          <button>Review Order</button>
+          <Link to="/order"><button onClick={this.reviewOrder}>Review Order</button></Link>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state)=>{
-  return {
-    order: state.order
-  }
+  return state
 }
 
-export default connect(mapStateToProps, cupcakes) (CupcakesContainer);
+export default connect(mapStateToProps, null) (CupcakesContainer);

@@ -16,12 +16,13 @@ a:link{
   height: 100px;
   font-size: 2em;
   font-family: courier;
+  border-bottom: 5px solid #ECC2CE;
 }
 
 
 .orderButton{
-  border: 3px solid #79B6C1;
-  color: #79B6C1;
+  border: 3px solid #705F4E;
+  color: #705F4E;
   background-color: transparent;
   box-sizing: border-box;
   font-family: sans-serif;
@@ -34,36 +35,50 @@ a:link{
 
 .orderButton:hover{
   background-color: #ECC2CE;
-  color: #6F614D;
+  color: #77B1BE;
   border: none;
 }
 .home{
-  height: 100vh;
-  background-image: url("./background.jpg");
+  height: 65vh;
+  background-image: url("./pics/background.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   padding-top: 10%;
   text-align: center;
 }
 
 .socialmediabox{
-  margin-top: 15%;
+  width: 100%;
+  text-align: center;
+  background-image: url("./pics/bottom-background.png");
+  border-top: 3px solid #77B1BE;
 }
 
 .socialmediaLinks{
-  margin: 2%
+  margin: 1%;
+  color: #705F4E;
+  font-size: 4em;
 }
+i:hover{
+  color: #ECC2CE;
+  transition: color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+}
+
 .foodMenu{
-  background-color: rgba(255,0,0, 0.3);
+  background-color: #B6D1D2;
+  height: 100vh;
+  
 }
 
 .cupcakesBox{
-  background-color: rgba(255,0,0, 0.3);
+  background-color: #B6D1D2;
   font-size: 2em;
   height: 500px;
   display: inline-block;
   text-align: center;
   padding: 1%;
+  padding-top: 3%;
   border: 1px solid black;
   width: 25%;
   vertical-align: middle;
@@ -76,19 +91,43 @@ a:link{
   color: red;
     margin: 10% 10px 10% 20px;
 }
+.numbers{
+  display: inline-block;
+  font-size: 2em;
+  margin-right: 2%;
+  /*border: 1px solid black;*/
+  padding-top: 0;
 
-button{
-  font-size: 20px;
-  border-radius: 40%;
-  background-color: white;
+}
+.addButtonBox{
+  display: inline-block;
+  width: 50px;
+  margin-top: 10%;
+  /*border: 1px solid yellow;*/
+}
+.addButton{
+  margin: 5%;
+  border: none;
+  width: 80%;
+  background-color: transparent;
+  color: #DEE5F2;
+  font-size: 1.3em;
+  
+}
+.minis{
+  float: right;
+  border: 1px solid blue;
+  width: 40%;
+}
+.minisCenter{
+  border: 1px solid green;
+  width: 100%;
 }
 
-/*.cupcakes{
-  height: 700px;
-  background-color: #B8D3D4;
-  padding-top: 10%;
-    
-}*/
+.orderOptions{
+  text-align: center;
+    border: 2px solid white;
+}
 .about{
   height: 100vh;
   background-color: #ECC2CE;
@@ -109,11 +148,16 @@ button{
   left: 0;
   color: #79B5C4;
   text-align: center;
-  height: 50px;
-  font-size: 2em;
+  height: 30px;
+  font-size: 1.5em;
   background-color: #ECC2CE;
 }
 
 .logo {
   width: 20%;
+}
+
+.orderReview{
+  margin-top: 10%;
+  text-align: center;
 }

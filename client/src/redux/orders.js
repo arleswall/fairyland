@@ -8,20 +8,20 @@ const REMOVE_ITEM = "REMOVE_ITEM";
 const PLACE_ORDER = "PLACE_ORDER";
 
 // Action Creators
-export function addItem(cupcake, isReg) {
+export function addItem(cupcake, size) {
   return {
     type: ADD_ITEM,
     data: {
       cupcake,
-      isReg
+      size
     }
   }
 }
 
-export function removeItem(cupcake) {
+export function removeItem(id) {
   return {
     type: REMOVE_ITEM,
-    cupcake
+    id
   }
 }
 
@@ -42,7 +42,8 @@ export function placeOrder(order) {
 
 // Reducer
 const initialOrder = {
-  items: []
+  items: [],
+  totalCost: 0
 }
 
 export default function(prevOrder = initialOrder, action) {
@@ -50,7 +51,7 @@ export default function(prevOrder = initialOrder, action) {
   let newItemsArr = [...prevOrder.items];
   switch (action.type) {
     case ADD_ITEM:
-      let newTotalCost = action.data.isReg ?
+      let newTotalCost = action.data.size === "regular" ?
         prevOrder.totalCost + action.data.cupcake.price.regular :
         prevOrder.totalCost + action.data.cupcake.price.mini
 
@@ -62,13 +63,14 @@ export default function(prevOrder = initialOrder, action) {
             regular: 0,
             mini: 0
           },
-          cupcake: action.data.cupcake._id
+          cupcake: action.data.cupcake._id,
+          cupcakeForOrderDisplay: action.data.cupcake
         })
       }
 
       newItemsArr = newItemsArr.map(item => {
         if (item.cupcake === action.data.cupcake._id) {
-          action.data.isReg ? item.quantity.regular++ : item.quantity.mini++
+          item.quantity[action.data.size]++
         }
         return item;
       });
@@ -79,7 +81,9 @@ export default function(prevOrder = initialOrder, action) {
       }
 
     case REMOVE_ITEM:
-      return prevOrder;
+    return newItemsArr.filter(item =>{
+      return item.cupcake !== action.id;
+    })
 
     case PLACE_ORDER:
       return prevOrder;
