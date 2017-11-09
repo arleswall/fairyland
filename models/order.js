@@ -7,6 +7,11 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  customer:{
+    name: String,
+    phone: String,
+    pickUpTime: Date
+  },
   items:[{
     quantity: {
       regular: Number,

@@ -1,11 +1,7 @@
-import axios from "axios";
-
-const cupcakesURL = "http://localhost:8000/order/"
 
 // Actions
 const ADD_ITEM = "ADD_ITEM";
 const REMOVE_ITEM = "REMOVE_ITEM";
-const PLACE_ORDER = "PLACE_ORDER";
 
 // Action Creators
 export function addItem(cupcake, size) {
@@ -18,26 +14,16 @@ export function addItem(cupcake, size) {
   }
 }
 
-export function removeItem(id) {
+export function removeItem(cupcake, size) {
   return {
     type: REMOVE_ITEM,
-    id
+    data: {
+      cupcake,
+      size
+    }
   }
 }
 
-export function placeOrder(order) {
-  return (dispatch) => {
-    axios.post(cupcakesURL, order).then((response) => {
-        dispatch({
-          type: PLACE_ORDER,
-          order: response.data
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-}
 
 
 // Reducer
@@ -49,11 +35,10 @@ const initialOrder = {
 export default function(prevOrder = initialOrder, action) {
 
   let newItemsArr = [...prevOrder.items];
+  let newTotalCost = prevOrder.totalCost;
   switch (action.type) {
     case ADD_ITEM:
-      let newTotalCost = action.data.size === "regular" ?
-        prevOrder.totalCost + action.data.cupcake.price.regular :
-        prevOrder.totalCost + action.data.cupcake.price.mini
+      newTotalCost += action.data.cupcake.price[action.data.size]
 
       let cupcakeExistsInOrder = newItemsArr.some(item => item.cupcake === action.data.cupcake._id);
 
@@ -81,13 +66,21 @@ export default function(prevOrder = initialOrder, action) {
       }
 
     case REMOVE_ITEM:
-    return newItemsArr.filter(item =>{
-      return item.cupcake !== action.id;
-    })
 
-    case PLACE_ORDER:
-      return prevOrder;
+      newItemsArr = newItemsArr
+      .map(item => {
+        if (item.cupcake === action.data.cupcake._id && item.quantity[action.data.size] !== 0) {
+          item.quantity[action.data.size]--;
+          newTotalCost -= action.data.cupcake.price[action.data.size]
+        }
+        return item;
+      })
+      .filter(item => item.quantity.regular !== 0 || item.quantity.mini !== 0);
 
+      return {
+        totalCost: newTotalCost,
+        items: newItemsArr
+      }
     default:
       return prevOrder
   }

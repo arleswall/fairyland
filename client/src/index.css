@@ -1,5 +1,5 @@
 .app-wrapper{
-
+height: 100vh
 }
 
 a:link{
@@ -79,8 +79,8 @@ i:hover{
   text-align: center;
   padding: 1%;
   padding-top: 3%;
-  border: 1px solid black;
-  width: 25%;
+  border: 1px solid #5CABB9;
+  width: 20%;
   vertical-align: middle;
 }
 .cupcakePic{
@@ -94,39 +94,39 @@ i:hover{
 .numbers{
   display: inline-block;
   font-size: 2em;
-  margin-right: 2%;
-  /*border: 1px solid black;*/
-  padding-top: 0;
+  margin-right: 6%;
+  vertical-align: top;
+  padding-top: 5%
 
 }
 .addButtonBox{
   display: inline-block;
   width: 50px;
-  margin-top: 10%;
-  /*border: 1px solid yellow;*/
 }
 .addButton{
   margin: 5%;
-  border: none;
   width: 80%;
   background-color: transparent;
-  color: #DEE5F2;
+  color: #DA8D91;
   font-size: 1.3em;
+  border: none;
   
+}
+
+.addButton:hover{
+  border: none;
+  cursor: pointer;
 }
 .minis{
   float: right;
-  border: 1px solid blue;
   width: 40%;
 }
 .minisCenter{
-  border: 1px solid green;
   width: 100%;
 }
 
 .orderOptions{
   text-align: center;
-    border: 2px solid white;
 }
 .about{
   height: 100vh;
@@ -160,4 +160,38 @@ i:hover{
 .orderReview{
   margin-top: 10%;
   text-align: center;
+}
+.reviewTopBar{
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+
+  
+}
+
+.reviewOrderBox{
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-left: 1%;
+  padding-right: 1%;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.totalCost{
+  font-size: 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.formularioBox{
+  margin-bottom: 3%;
+  text-align: center;
+}
+.formulario{
+  width: 25%;
+  margin-bottom: 1%;
+}
+
+.placeOrder{
+  margin: 5%;
 }

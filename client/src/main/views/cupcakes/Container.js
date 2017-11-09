@@ -32,20 +32,13 @@ class CupcakesContainer extends React.Component{
     })
   }
   
-  // reviewOrder(){
-  //   return this.state.order.items.map((item)=>{
-  //     return (
-  //       <OrderComponent items={item} key={item._id} />
-  //     )
-  //   })
-  // }
   
   
   render(){
     return(
       <div className="foodMenu">
           {this.genList()}
-          <Link to="/order"><button onClick={this.reviewOrder}>Review Order</button></Link>
+          <Link to="/order"><button>Review Order</button></Link>
       </div>
     )
   }

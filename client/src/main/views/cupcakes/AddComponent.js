@@ -12,32 +12,33 @@ function AddComponent(props){
   
   let show={
     display: "inline-block",
-    border: "1px solid red",
     float: "left",
     width: "40%"
   }
   let hide ={
     display: "none"
   }
-  // console.log(props.order.items)
+
   
   return(
     <div className="orderOptions">
           <div style={props.cupcake.price.regular? show:hide}>
               <p className="numbers">{cupcakeQuantity(props.cupcake._id, "regular")} </p>
               <div className="addButtonBox">
-              <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "regular")}}>+</button>
+              <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "regular")}}><i className="fa fa-plus" aria-hidden="true"></i></button>
               <br/>
-              <button className="addButton" onClick={()=>{props.removeItem(props.cupcake._id)}}>-</button>
+              <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "regular")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
               </div>
             <h4>R</h4>
           </div>
           <div className={props.cupcake.price.regular? "minis" : "minisCenter"}>
-                <p className="numbers">{cupcakeQuantity(props.cupcake._id, "mini")}</p>
-                <div className="addButtonBox">
-                <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "mini")}}>+</button>
+                <div className="numbers">
+                    <p >{cupcakeQuantity(props.cupcake._id, "mini")}</p>
+                </div>
+              <div className="addButtonBox">
+                <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "mini")}}><i className="fa fa-plus" aria-hidden="true"></i></button>
                 <br/>
-                <button className="addButton" onClick={()=>{props.removeItem(props.cupcake._id)}}>-</button>
+                <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "mini")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
               </div>  
               <h4>M</h4>
           </div>

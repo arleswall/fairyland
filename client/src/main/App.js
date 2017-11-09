@@ -3,6 +3,7 @@ import {Switch, Route} from "react-router-dom";
 import Home from "./views/Home";
 import CupcakesContainer from "./views/cupcakes/Container";
 import OrderContainer from "./views/order/Container";
+import ThankYou from "./views/order/ThankYou";
 import About from "./views/About";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -22,6 +23,7 @@ class App extends React.Component{
             <Route path="/cupcakes" component={CupcakesContainer}/>
             <Route path="/about" component={About}/>
             <Route path="/order" component={OrderContainer}/>
+            <Route path="/confirmation/:id" component={ThankYou}/>
         </Switch>
       <Footer/>
       </div>

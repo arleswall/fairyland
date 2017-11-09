@@ -12,10 +12,14 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect("mongodb://localhost/cupcake", (err)=>{
-  if(err) throw err;
-  console.log("Connected to the database")
-})
+mongoose.connect(
+  "mongodb://localhost/cupcake", 
+  { keepAlive: true, reconnectTries: Number.MAX_VALUE, useMongoClient: true }, 
+  (err)=>{
+    if(err) throw err;
+    console.log("Connected to the database")
+  }
+)
 
 app.use("/cupcake", require("./routes/cupcakeRoutes"))
 app.use("/order", require("./routes/orderRoutes"))
