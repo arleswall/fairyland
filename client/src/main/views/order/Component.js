@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 // import {cupcakes} from "../../../redux//";
 
 
+
 function OrderComponent(props) {
   let show={
     display: "inherit"
@@ -11,10 +12,11 @@ function OrderComponent(props) {
     display: "none"
   }
 
+
   return(   
             <div className="reviewOrderBox">
                 <h3>{props.item.cupcakeForOrderDisplay.title}</h3>
-                <h3 style={props.item.quantity.regular? show:hide}>{props.item.quantity.regular}</h3>
+                <h3 style={props.item.quantity.regular? show:hide}>{props.item.quantity.regular} R</h3>
                 <h3 style={props.item.quantity.mini? show:hide}>{props.item.quantity.mini}</h3>
             </div>
   )

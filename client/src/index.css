@@ -22,14 +22,13 @@ a:link{
 
 
 .orderButton{
+  font-family: serif;
+  font-weight: 300;
   border: 3px solid #705F4E;
   color: #705F4E;
   background-color: transparent;
   box-sizing: border-box;
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  text-decoration: none;
+  font-size: 25px;
   padding: 1em 2em;
   transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
 }
@@ -112,6 +111,9 @@ i:hover{
   vertical-align: top;
   height: 700px;
 }
+@media (max-width: 800px) {
+  .cupcakesBox { width: 100%; }
+}
 .cupcakeTitle{
   color: #3A322C; 
   font-family: serif; 
@@ -174,6 +176,7 @@ i:hover{
   background-color: #B6D1D2;
   padding-top: 150px;
     color: #49413B;
+    font-family: sans-serif;
 }
 .tripAdvisorBox{
   display: flex;
