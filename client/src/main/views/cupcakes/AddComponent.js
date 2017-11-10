@@ -1,36 +1,53 @@
 import React from "react";
 import {connect} from "react-redux";
-import {cupcakes} from "../../../redux/actions/";
+import * as actions from "../../../redux/orders";
+// import {addItem, removeItem} from "../../../redux/orders";
 
 
 function AddComponent(props){
+  function cupcakeQuantity(id, size) {
+    const item = props.order.items.find(item => item.cupcake === id);
+    return item === undefined ? 0 : item.quantity[size]
+  }
+  
   let show={
-    display: "inherit"
+    display: "inline-block",
+    float: "left",
+    width: "40%"
   }
   let hide ={
     display: "none"
   }
-  console.log(props)
+
+  
   return(
-    <div>
-          <div>
-              <h3>{props.cupcake.quantity.regular} Regular</h3>
-              <button onClick={()=>{props.addItem(props.cupcake)}}>+</button>
-              <button onClick={()=>{props.removeItem(props.cupcake)}}>-</button>
+    <div className="orderOptions">
+          <div style={props.cupcake.price.regular? show:hide}>
+              <p className="numbers">{cupcakeQuantity(props.cupcake._id, "regular")} </p>
+              <div className="addButtonBox">
+              <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "regular")}}><i className="fa fa-plus" aria-hidden="true"></i></button>
+              <br/>
+              <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "regular")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
+              </div>
+            <h4>R</h4>
           </div>
-          <div style={props.cupcake.price.mini? show:hide}>
-                <h3>{props.cupcake.quantity.mini} Mini</h3>
-                <button onClick={()=>{props.addMini(props.cupcake)}}>+</button>
-                <button onClick={()=>{props.removeMini(props.cupcake)}}>-</button>
+          <div className={props.cupcake.price.regular? "minis" : "minisCenter"}>
+                <div className="numbers">
+                    <p >{cupcakeQuantity(props.cupcake._id, "mini")}</p>
+                </div>
+              <div className="addButtonBox">
+                <button className="addButton" onClick={()=>{props.addItem(props.cupcake, "mini")}}><i className="fa fa-plus" aria-hidden="true"></i></button>
+                <br/>
+                <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "mini")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
+              </div>  
+              <h4>M</h4>
           </div>
     </div>
   )
 }
 
 const mapStateToProps = (state)=>{
-  return {
-    cupcakes:state.cupcakes
-  }
+  return state
 }
 
-export default connect(mapStateToProps, cupcakes)(AddComponent);
+export default connect(mapStateToProps, actions)(AddComponent);

@@ -1,10 +1,8 @@
 import React from "react";
-// import {Switch, Route} from "react-router-dom";
-// import Cupcake from "./Cupcake";
 import AddComponent from "./AddComponent";
 
 function CupcakesComponent(props){
-// const searchById = props.searchById
+
 let show={
   display: "inherit"
 }
@@ -14,25 +12,16 @@ let hide ={
 
   return(
       <div className="cupcakesBox">
+        <h3 className="cupcakeTitle">{props.cupcake.title}</h3>
           <img className="cupcakePic" src={props.cupcake.picture} alt=""/>
-          <h4>{props.cupcake.title}</h4>
-          <h4>{props.cupcake.description}</h4>
-          <h4>Regular: ${props.cupcake.price.regular}</h4>
-          <h4 style={props.cupcake.price.mini? show:hide}>Mini: ${props.cupcake.price.mini}</h4>
-          <AddComponent cupcake={props.cupcake}/>
+          
+          <h4 className="cupcakeDescription">{props.cupcake.description}</h4>
+          <br/>
+          <h4 className="cupcakeDescription"><span style={props.cupcake.price.regular? show:hide}>Regular: R$ {props.cupcake.price.regular} </span> Mini: R$ {props.cupcake.price.mini}</h4>  
+        
+                <AddComponent cupcake={props.cupcake}/>
       </div>
   )
 }
 
 export default CupcakesComponent;
-
-// 
-//   <div className="cupcakes">
-//     <Switch>
-//           <Route path="/cupcakes/:id" render={(props)=>{
-//             return(
-//               <Cupcake searchById={searchById}{...props}/>
-//             )
-//           }}/>
-//     </Switch>
-// </div>
