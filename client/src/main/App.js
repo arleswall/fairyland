@@ -7,17 +7,12 @@ import ThankYou from "./views/order/ThankYou";
 import About from "./views/About";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import {Col, Row} from "react-bootstrap";
 
 class App extends React.Component{
   render(){
     return(
       <div className="app-wrapper">
-        <Row>
-          <Col sm={12}>
-              <Navbar/>
-          </Col>
-        </Row>
+        <Navbar/>
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/cupcakes" component={CupcakesContainer}/>

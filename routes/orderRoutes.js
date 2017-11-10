@@ -11,7 +11,7 @@ orderRoutes.get("/", (req, res)=>{
 })
 
 orderRoutes.get("/:id", (req, res)=>{
-  Order.findById(req.params.id, (err, order)=>{
+  Order.findById(req.params.id).populate("items.cupcake").exec((err, order)=>{
     if (err) return res.status(500).send(err);
     return res.send(order);
   })

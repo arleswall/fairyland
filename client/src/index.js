@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import {createStore, applyMiddleware} from "redux";
 import reducer from "./redux";
 import "./index.css";
-
+import "./datepicker.css"
 const store = createStore(reducer, applyMiddleware(thunk));
 store.subscribe(()=>{
   // console.log(store.getState())

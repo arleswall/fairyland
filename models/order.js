@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const autoIncrement = require('mongoose-auto-increment');
 
 const orderSchema = new Schema({
   totalCost: Number,
@@ -8,9 +9,18 @@ const orderSchema = new Schema({
     default: Date.now
   },
   customer:{
-    name: String,
-    phone: String,
-    pickUpTime: Date
+        name: {
+          type: String,
+          required: true
+        },
+        phone: {
+          type: String,
+          required: true
+        },    
+        pickUpTime: {
+          type: Date,
+          required: true
+    }
   },
   items:[{
     quantity: {
@@ -23,7 +33,9 @@ const orderSchema = new Schema({
     }
   }]
 })
+
+orderSchema.plugin(autoIncrement.plugin, 'Order');
+// const Order = connection.model('Order', orderSchema);
+
+
 module.exports = mongoose.model("Order", orderSchema)
-// If you don't calculate the totalCost on the client side, you want to add a
-// hook to run to calculate the totalCost of the order before creating it
-// orderSchema.pre("save")

@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 // import {cupcakes} from "../../../redux//";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Datetime from "react-datetime";
+
+require('moment/locale/pt-br');
 
 class OrderContainer extends React.Component {
   constructor(props) {
@@ -19,6 +22,8 @@ class OrderContainer extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    
   }
 
   generateOrder() {
@@ -28,7 +33,6 @@ class OrderContainer extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value)
     event.persist();
     this.setState((prevState) => {
       return {
@@ -40,28 +44,49 @@ class OrderContainer extends React.Component {
       }
     })
   }
+  handleDateChange(mnt) {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        customer: {
+          ...prevState.customer,
+          pickUpTime: mnt._d
+        }
+      }
+    })
+  }
 
   placeOrder(e) {
     e.preventDefault();
     axios.post('http://localhost:8000/order/', this.state).then(response =>{
+      console.log(response.data);
        this.props.history.push(`/confirmation/${response.data._id}`);
      })
   }
+  
 
   render() {
-    console.log(this.props.history)
+    const yesterday = Datetime.moment().subtract(1, 'day');
+    const valid = function( current ){
+        return current.isAfter( yesterday ) && current.day() !== 1 && current.day() !== 2;
+    };
+  
     return (
       <div className="orderReview">
         <h3>Your order below:</h3>
         <h2 className="reviewTopBar">Cupcake</h2>
-        <h2 className="reviewTopBar">Grande</h2>
-        <h2 className="reviewTopBar">Pequeno</h2>
+        <h2 className="reviewTopBar">Quantity</h2>
         <div>
           {this.generateOrder()}
           <h4 className="totalCost">Total: R${this.props.order.totalCost}</h4>
         </div>
         <hr/>
         <form className="formularioBox">
+          <label>Pick Up Date and Time:
+          </label>
+          <br/>
+          <Datetime inputProps={{placeholder:"Date and Time"}} className="datepicker" locale="pt-br" timeConstraints={{ hours: { min: 13, max: 19}}} isValidDate={ valid } dateFormat="dddd, Do MMMM YYYY" onChange={this.handleDateChange} value={this.state.customer.pickUpTime} name="pickUpTime" />
+          <br/>
           <label>Nome:
           </label>
           <br/>
@@ -73,16 +98,12 @@ class OrderContainer extends React.Component {
           <br/>
           <input className="formulario" onChange={this.handleChange} value={this.state.customer.phone} name="phone" type="tel" placeholder="Telefone"/>
           <br/>
-          <label>Date:
-          </label>
-          <br/>
-          <input className="formulario" type="datetime-local" onChange={this.handleChange} value={this.state.customer.pickUpTime} name="pickUpTime"/>
         </form>
         <div className="placeOrder">
           <Link to="/cupcakes">
-            <button>Go back</button>
+            <button className="placeOrderButtons">Go back</button>
           </Link>
-            <button onClick={this.placeOrder}>Place order</button>
+            <button className="placeOrderButtons" onClick={this.placeOrder}>Place order</button>
         </div>
       </div>
     )

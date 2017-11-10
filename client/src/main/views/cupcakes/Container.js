@@ -38,7 +38,9 @@ class CupcakesContainer extends React.Component{
     return(
       <div className="foodMenu">
           {this.genList()}
-          <Link to="/order"><button>Review Order</button></Link>
+          <div className="reviewOrderButtonBox">
+              <Link to="/order"><button className="reviewOrderButton">Review Order</button></Link>
+          </div>
       </div>
     )
   }
