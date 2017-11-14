@@ -25,6 +25,7 @@ autoIncrement.initialize(connection);
 
 app.use("/cupcake", require("./routes/cupcakeRoutes"))
 app.use("/order", require("./routes/orderRoutes"))
+app.use("/admin", require("./routes/adminRoutes"))
 
 app.listen(port, ()=>{
   console.log(`this server is runnning on port ${port}`)

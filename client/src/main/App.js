@@ -7,6 +7,7 @@ import ThankYou from "./views/order/ThankYou";
 import About from "./views/About";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import AdminContainer from "./views/admin/Container";
 
 class App extends React.Component{
   render(){
@@ -19,6 +20,7 @@ class App extends React.Component{
             <Route path="/about" component={About}/>
             <Route path="/order" component={OrderContainer}/>
             <Route path="/confirmation/:id" component={ThankYou}/>
+            <Route path="/admin" component={AdminContainer}/>
         </Switch>
       <Footer/>
       </div>
