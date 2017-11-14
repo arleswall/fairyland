@@ -10,7 +10,7 @@ import "./index.css";
 import "./datepicker.css"
 const store = createStore(reducer, applyMiddleware(thunk));
 store.subscribe(()=>{
-  // console.log(store.getState())
+  console.log(store.getState())
 })
 
 
