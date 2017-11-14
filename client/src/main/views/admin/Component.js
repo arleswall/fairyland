@@ -12,7 +12,6 @@ function AdminComponent(props){
     let newTimeFormat = moment(props.order.customer.pickUpTime).format("h:mm")
     return (
       <div className="thankYouBox">
-        <h3>Your order has been confirmed!</h3>
         <h3>Order Number: {props.order._id}</h3>
         <br/>
           <h4 className="reviewTopBar">Cupcake</h4>
@@ -20,7 +19,7 @@ function AdminComponent(props){
         {props.order.items.map(item=>{
           return(
             <div className="reviewOrderBox">
-              <h4>{item.cupcake.title}</h4>
+              <h4>{item.cupcake}</h4>
             <h4 style={item.quantity.mini? show:hide}>{item.quantity.mini}</h4>
             <h4 style={item.quantity.regular? show:hide}>{item.quantity.regular}</h4>
             </div>
