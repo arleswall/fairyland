@@ -23,7 +23,7 @@ class AdminContainer extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="logout">
         <button onClick={this.props.logout}>Logout</button>
       {}
       
@@ -31,7 +31,7 @@ class AdminContainer extends React.Component {
         <Route exact path="/admin" component={SigninContainer}></Route>
         <Route path="/admin/orders" render={(props)=>{
           return(
-            <div>
+            <div className="omsBackground">
             {this.state.order.map(order=>{
               return(    
                       <AdminComponent order={order}/>            

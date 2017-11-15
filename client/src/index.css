@@ -299,3 +299,46 @@ i:hover{
 .pickUpDay{
   font-size: 15px;
 }
+.logout{
+  background-color: #F2E0E4;
+}
+.omsBox{
+  padding-top: 120px;
+  background-color: #F2E0E4;
+  height: 100%;
+  color: #705F4E;
+  display: inline-block;
+  padding-left: 1%;
+  vertical-align: top;
+  width: 33%;
+}
+.omsBackground{
+  background-color: #F2E0E4;
+}
+.omsTopBar{
+  display: inline-block;
+  justify-content: space-between;
+  width: 49%;
+  
+}
+.omsListBox{
+  display: flex;
+  padding-left: 4%;
+  padding-right: 4%;
+  justify-content: space-between;
+  border-bottom: 2px solid #78B0BE;
+  color: #78B0BE;
+  background-color: #DEE4F0;
+  width: 100%;
+}
+.totalCostOms{
+  margin-top: 0;
+  border-bottom: 2px solid #78B0BE;
+  color: #78B0BE;
+  background-color: #DEE4F0;
+  width: 33%;
+  padding:1%;
+}
+.pickUpDayOms{
+  font-size: 15px;
+}
