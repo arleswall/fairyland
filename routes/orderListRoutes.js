@@ -11,18 +11,20 @@ orderListRoute.use(auth);
 
 
 orderListRoute.get("/", (req, res)=>{
-  Order.find((err, orders)=>{
+  Order.find().populate("items.cupcake").exec((err, orders)=>{
     if (err) return res.status(500).send(err);
     return res.send(orders);
   })
 })
 
 orderListRoute.put("/:id", (req, res)=>{
-  Order.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, orders)=>{
-    if (err) return res.status(500).send(err);
-    return res.send(orders);
-  })
-})
+  Order.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .populate("items.cupcake")
+    .exec((err, orders)=>{
+        if (err) return res.status(500).send(err);
+        return res.send(orders);
+    });
+});
 
 
 orderListRoute.route("/verify")

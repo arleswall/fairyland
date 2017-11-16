@@ -49,11 +49,11 @@ class ListComponent extends React.Component{
                     let firstTime = new Date(a.customer.pickUpTime).getTime();
                     let secondTime = new Date(b.customer.pickUpTime).getTime();
                     return firstTime - secondTime;
-                }).map((order, i)=>{
+                }).map((order)=>{
                     return(    
                         <AdminComponent 
                             order={order} 
-                            key={order._id + i}
+                            key={order._id}
                             id={order._id}
                             handleEdit={this.handleEdit}/>            
                     )
