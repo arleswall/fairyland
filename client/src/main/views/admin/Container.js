@@ -16,21 +16,15 @@ axios.interceptors.request.use((config)=>{
 
 class AdminContainer extends React.Component {
   constructor(props) {
-    super();
-    this.state = {
-      order: []
-    };
-    
+    super();  
   }
 
 
-
-
   render() {
-    // const isAuthenticated = this.props.isAuthenticated;
+    const isAuthenticated = this.props.auth.isAuthenticated;
     return (
       <div className="logout">
-        <button onClick={this.props.logout}>Logout</button>
+        {isAuthenticated ? <button onClick={this.props.logout}>Logout</button> : null}
       
       <Switch>
         <Route exact path="/admin" component={SigninContainer}/>
@@ -42,5 +36,7 @@ class AdminContainer extends React.Component {
           )
         }
     } 
-       
-export default withRouter(connect(null, actions)(AdminContainer));
+  const mapStateToProps = state=>{
+    return state;
+  }     
+export default withRouter(connect(mapStateToProps, actions)(AdminContainer));

@@ -8,20 +8,24 @@ function AdminComponent(props){
     let hide ={
       display: "none"
     }
-    let newDateFormat = moment(props.order.customer.pickUpTime).format("dddd, D MMMM YYYY");
-    let newTimeFormat = moment(props.order.customer.pickUpTime).format("h:mm")
+    let pickupTime = props.order.customer.pickUpTime;
+    let newDateFormat = moment(pickupTime).format("dddd, D MMMM YYYY");
+    let newTimeFormat = moment(pickupTime).format("h:mm");
+    
     return (
           
       <div className="omsBox">
         <h4>Order Number: {props.order._id}</h4>
-       <br/>
+          <h4>{props.order.completed? "Completed" : "Pending"}</h4>
+          <input className="checkbox" onChange={(e)=>{props.handleEdit(e, props.id)}} checked={props.order.completed} name="completed" type="checkbox"/>
+          <br/>
           <h4 className="omsTopBar">Cupcake</h4><span> </span>
           <h4 className="omsTopBar">Quantity:</h4>
           
-        {props.order.items.map(item=>{
+          {props.order.items.map((item, i)=>{
           return(
-            <div className="omsListBox">
-              <h4>{item.cupcake}</h4>
+            <div className="omsListBox"> 
+              <h4 key={i}>{item.cupcake}</h4>
             <h4 style={item.quantity.mini? show:hide}>{item.quantity.mini}</h4>
             <h4 style={item.quantity.regular? show:hide}>{item.quantity.regular}</h4>
             </div>

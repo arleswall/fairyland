@@ -17,6 +17,14 @@ orderListRoute.get("/", (req, res)=>{
   })
 })
 
+orderListRoute.put("/:id", (req, res)=>{
+  Order.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, orders)=>{
+    if (err) return res.status(500).send(err);
+    return res.send(orders);
+  })
+})
+
+
 orderListRoute.route("/verify")
     .get((req, res) => {
         Admin.findById(req.user._id, (err, user) => {
