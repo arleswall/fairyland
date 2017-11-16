@@ -23,15 +23,16 @@ class AdminContainer extends React.Component {
   render() {
     const isAuthenticated = this.props.auth.isAuthenticated;
     return (
-      <div className="logout">
-        {isAuthenticated ? <button onClick={this.props.logout}>Logout</button> : null}
-      
-      <Switch>
-        <Route exact path="/admin" component={SigninContainer}/>
-        <ProtectedRoute path="/admin/orders" component={ListComponent}/>
-        />
-      </Switch>
-      </div>
+        <div>
+            <div className="logoutBox">
+                {isAuthenticated ? <button className="logout" onClick={this.props.logout}>Logout</button> : null}
+            </div>
+            <Switch>
+                <Route exact path="/admin" component={SigninContainer}/>
+                <ProtectedRoute path="/admin/orders" component={ListComponent}/>
+                />
+            </Switch>
+        </div>
           
           )
         }

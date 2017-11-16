@@ -8,6 +8,16 @@ function AdminComponent(props){
     let hide ={
       display: "none"
     }
+    let completed = {
+        color: "#1EC049",
+        fontSize: "2em",
+        fontFamily: "monospace"
+    }
+    let pending = {
+        color: "#C71129",
+        fontSize: "2em",
+        fontFamily: "monospace"
+    }
     let pickupTime = props.order.customer.pickUpTime;
     let newDateFormat = moment(pickupTime).format("dddd, D MMMM YYYY");
     let newTimeFormat = moment(pickupTime).format("h:mm");
@@ -15,28 +25,31 @@ function AdminComponent(props){
     return (
           
       <div className="omsBox">
-        <h4>Order Number: {props.order._id}</h4>
-          <h4>{props.order.completed? "Completed" : "Pending"}</h4>
-          <input className="checkbox" onChange={(e)=>{props.handleEdit(e, props.id)}} checked={props.order.completed} name="completed" type="checkbox"/>
+      <h4>Order Number: <span className="orderNumberOms">{props.order._id}</span></h4>
+      <input className="checkbox" onChange={(e)=>{props.handleEdit(e, props.id)}} checked={props.order.completed} name="completed" type="checkbox"/>
+        
+        <label style={props.order.completed? completed : pending}>{props.order.completed? "Completed" : "Pending"}</label>
           <br/>
-          <h4 className="omsTopBar">Cupcake</h4><span> </span>
-          <h4 className="omsTopBar">Quantity:</h4>
-          
+
           {props.order.items.map((item, i)=>{
-          return(
-            <div key={item._id} className="omsListBox"> 
-              <h4>{item.cupcake}</h4>
-            <h4 style={item.quantity.mini? show:hide}>{item.quantity.mini}</h4>
-            <h4 style={item.quantity.regular? show:hide}>{item.quantity.regular}</h4>
-            </div>
-          )
-        })}
-        <h4 className="totalCostOms">Total: R $ {props.order.totalCost}</h4>
+              return(
+                  <div key={item._id} className="omsListBox"> 
+                      <h4>{item.cupcake.title}</h4>
+                      <h4 style={item.quantity.regular? show:hide}>{item.quantity.regular}G</h4>
+                      <h4 style={item.quantity.mini? show:hide}>{item.quantity.mini}</h4>                  
+                  </div>
+              )
+          })}
+        <h4 className="totalCostOms">Total: R$ {props.order.totalCost}</h4>
         <br/>
-        <h4 className="pickUpDayOms">Pick Up Day:</h4>
-        <h4>{newDateFormat}</h4>
-        <h4 className="pickUpDayOms">Pick Up Time:</h4>
-        <h4>{newTimeFormat}</h4>  
+        <div className="pickUpDayOms">
+            <h4>Pick Up Day:</h4>
+            <h4>{newDateFormat}</h4>
+        </div>
+        <div className="pickUpTimeOms">
+            <h4>Pick Up Time:</h4>
+            <h4>{newTimeFormat}</h4> 
+        </div> 
       </div>
     )
   }
