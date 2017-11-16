@@ -23,18 +23,18 @@ function About(){
                 <br/>
                 <h4>Directions or Uber</h4>
                 <h4 className="uber">Click Below </h4>
-                  <i class="fa fa-map-o" aria-hidden="true"></i> &nbsp; 
-                  <i class="fa fa-taxi" aria-hidden="true"></i> &nbsp;
+                  <i className="fa fa-map-o" aria-hidden="true"></i> &nbsp; 
+                  <i className="fa fa-taxi" aria-hidden="true"></i> &nbsp;
                   <br/>
                   <br/>
-          <div class="showtheway">
+          <div className="showtheway">
             <a href="https://showtheway.io/to/-27.514543,-48.51497?name=FairyLand%20Caf%26eacute%3B%20%26amp%3B%20Cupcakeria" title="Show the Way to FairyLand Café & Cupcakeria with your favorite navigation application">Show the Way</a>
           </div>
         </div>
           <div className="tripAdvisor">
-              <div id="TA_selfserveprop66" class="TA_selfserveprop">
-                    <ul id="sTHoXGMtQp" class="TA_links TxRvp6Cl">
-                        <li id="CvleFmZaHI" class="hAyZtzG">                    
+              <div id="TA_selfserveprop66" className="TA_selfserveprop">
+                    <ul id="sTHoXGMtQp" className="TA_links TxRvp6Cl">
+                        <li id="CvleFmZaHI" className="hAyZtzG">                    
                             <a href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
                         </li>
                     </ul>

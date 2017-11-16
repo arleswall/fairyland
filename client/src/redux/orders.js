@@ -1,9 +1,11 @@
 
 // Actions
+
 const ADD_ITEM = "ADD_ITEM";
 const REMOVE_ITEM = "REMOVE_ITEM";
 
 // Action Creators
+
 export function addItem(cupcake, size) {
   return {
     type: ADD_ITEM,
@@ -36,7 +38,7 @@ export default function(prevOrder = initialOrder, action) {
 
   let newItemsArr = [...prevOrder.items];
   let newTotalCost = prevOrder.totalCost;
-  switch (action.type) {
+  switch (action.type) {  
     case ADD_ITEM:
       newTotalCost += action.data.cupcake.price[action.data.size]
 
