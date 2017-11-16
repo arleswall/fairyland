@@ -1,51 +1,46 @@
 import React from "react";
-import AdminComponent from "./Component"
 import axios from "axios";
-import {connect} from "react-redux";
 import * as actions from "../../../redux/auth";
 import SigninContainer from "../../signin/Container";
-import {Switch, Route} from "react-router-dom";
+import { Route, Switch, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import ProtectedRoute from "../../signin/ProtectedRoute";
+import ListComponent from "./ListComponent";
+
+
+axios.interceptors.request.use((config)=>{
+  const token = localStorage.getItem("token");
+  config.headers.Authorization = `Bearer ${token}`
+  return config;
+})
 
 class AdminContainer extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       order: []
     };
+    
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:8000/order/`).then(response => {
-      this.setState({order: response.data})
-    })
-  }
 
-  
+
+
   render() {
+    // const isAuthenticated = this.props.isAuthenticated;
     return (
       <div className="logout">
         <button onClick={this.props.logout}>Logout</button>
-      {}
       
       <Switch>
-        <Route exact path="/admin" component={SigninContainer}></Route>
-        <Route path="/admin/orders" render={(props)=>{
-          return(
-            <div className="omsBackground">
-            {this.state.order.map(order=>{
-              return(    
-                      <AdminComponent order={order}/>            
-                
-              )
-            })
-          }
-            </div>
-          )
-        }}></Route>
+        <Route exact path="/admin" component={SigninContainer}/>
+        <ProtectedRoute path="/admin/orders" component={ListComponent}/>
+        />
       </Switch>
       </div>
           
           )
         }
-    }    
-export default connect(null, actions)(AdminContainer);
+    } 
+       
+export default withRouter(connect(null, actions)(AdminContainer));

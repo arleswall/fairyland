@@ -3,13 +3,6 @@ const orderRoutes = express.Router();
 const Order = require("../models/order");
 
 
-orderRoutes.get("/", (req, res)=>{
-  Order.find((err, orders)=>{
-    if (err) return res.status(500).send(err);
-    return res.send(orders);
-  })
-})
-
 orderRoutes.get("/:id", (req, res)=>{
   Order.findById(req.params.id).populate("items.cupcake").exec((err, order)=>{
     if (err) return res.status(500).send(err);

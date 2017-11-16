@@ -1,6 +1,6 @@
 import axios from "axios";
-
 const userUrl = "http://localhost:8000/admin/"
+const ordersUrl = "http://localhost:8000/admin/orders";
 
 const LOGON = "LOGON"
 const HANDLE_AUTH_ERR = "HANDLE_AUTH_ERR"
@@ -18,6 +18,11 @@ const auth = {
   isAuthenticated: false
 }
 
+axios.interceptors.request.use((config)=>{
+  const token = localStorage.getItem("token");
+  config.headers.Authorization = `Bearer ${token}`
+  return config
+})
 
 function logon(success, user) {
   return {
@@ -41,7 +46,7 @@ export function logout() {
     type: LOGOUT
   }
 }
-export function signin(credentials) {
+export function signin(credentials, history) {
   return (dispatch) => {
     axios.post(userUrl + "login", credentials)
       .then((response) => {
@@ -52,6 +57,7 @@ export function signin(credentials) {
         } = response.data;
         localStorage.setItem("token", token);
         dispatch(logon(success, user));
+        history.push("/admin/orders");
       })
       .catch((err) => {
         console.error(err);
@@ -59,6 +65,20 @@ export function signin(credentials) {
       });
   }
 }
+
+export function verify(){
+  return (dispatch)=>{
+    axios.get(ordersUrl + "/verify")
+      .then((response)=>{
+        let {success, user} = response.data;
+        dispatch(logon(success, user));
+      })
+      .catch((err)=>{
+        console.error(err);
+      })
+  }
+}
+
 export default function authReducer(prevAuth = auth, action) {
   switch (action.type) {
     case LOGOUT:

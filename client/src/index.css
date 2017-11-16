@@ -342,3 +342,13 @@ i:hover{
 .pickUpDayOms{
   font-size: 15px;
 }
+.signinBox{
+  text-align: center;
+  margin-top: 200px;
+  font-size: 2em;
+}
+
+.signin{
+  display: block;
+  margin: auto;
+}

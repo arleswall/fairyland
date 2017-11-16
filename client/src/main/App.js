@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import Home from "./views/Home";
 import CupcakesContainer from "./views/cupcakes/Container";
 import OrderContainer from "./views/order/Container";
@@ -9,7 +9,9 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AdminContainer from "./views/admin/Container";
 
+
 class App extends React.Component{
+
   render(){
     return(
       <div className="app-wrapper">

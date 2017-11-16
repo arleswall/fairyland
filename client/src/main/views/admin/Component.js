@@ -14,7 +14,7 @@ function AdminComponent(props){
           
       <div className="omsBox">
         <h4>Order Number: {props.order._id}</h4>
-        <br/>
+       <br/>
           <h4 className="omsTopBar">Cupcake</h4><span> </span>
           <h4 className="omsTopBar">Quantity:</h4>
           

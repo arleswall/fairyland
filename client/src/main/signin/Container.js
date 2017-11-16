@@ -28,7 +28,7 @@ class SigninContainer extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         // This is where we will call our signin function from redux
-        this.props.signin(this.state.inputs);
+        this.props.signin(this.state.inputs, this.props.history);
         this.setState({
             inputs: {
                 username: "",

@@ -22,6 +22,10 @@ const orderSchema = new Schema({
           required: true
     }
   },
+  completed: {
+    type: Boolean,
+    default: false
+  },
   items:[{
     quantity: {
       regular: Number,
