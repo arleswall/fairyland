@@ -9,12 +9,14 @@ function AdminComponent(props){
       display: "none"
     }
     let completed = {
-        color: "green",
-        fontSize: "2em"
+        color: "#1EC049",
+        fontSize: "2em",
+        fontFamily: "monospace"
     }
     let pending = {
-        color: "red",
-        fontSize: "2em"
+        color: "#C71129",
+        fontSize: "2em",
+        fontFamily: "monospace"
     }
     let pickupTime = props.order.customer.pickUpTime;
     let newDateFormat = moment(pickupTime).format("dddd, D MMMM YYYY");
@@ -23,7 +25,7 @@ function AdminComponent(props){
     return (
           
       <div className="omsBox">
-      <h4>Order Number: {props.order._id}</h4>
+      <h4>Order Number: <span className="orderNumberOms">{props.order._id}</span></h4>
       <input className="checkbox" onChange={(e)=>{props.handleEdit(e, props.id)}} checked={props.order.completed} name="completed" type="checkbox"/>
         
         <label style={props.order.completed? completed : pending}>{props.order.completed? "Completed" : "Pending"}</label>
