@@ -24,8 +24,8 @@ function AdminComponent(props){
           
           {props.order.items.map((item, i)=>{
           return(
-            <div className="omsListBox"> 
-              <h4 key={i}>{item.cupcake}</h4>
+            <div key={item._id} className="omsListBox"> 
+              <h4>{item.cupcake}</h4>
             <h4 style={item.quantity.mini? show:hide}>{item.quantity.mini}</h4>
             <h4 style={item.quantity.regular? show:hide}>{item.quantity.regular}</h4>
             </div>
