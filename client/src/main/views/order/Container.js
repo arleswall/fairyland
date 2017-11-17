@@ -85,18 +85,35 @@ class OrderContainer extends React.Component {
           <label>Pick Up Date and Time:
           </label>
           <br/>
-          <Datetime inputProps={{placeholder:"Date and Time"}} className="datepicker" locale="pt-br" timeConstraints={{ hours: { min: 13, max: 19}}} isValidDate={ valid } dateFormat="dddd, Do MMMM YYYY" onChange={this.handleDateChange} value={this.state.customer.pickUpTime} name="pickUpTime" />
+          <Datetime inputProps={{placeholder:"Date and Time"}} 
+                    className="datepicker" 
+                    locale="pt-br" 
+                    timeConstraints={{ hours: { min: 14, max: 20}, minutes: {step: 10}}} 
+                    isValidDate={ valid } dateFormat="dddd, Do MMMM YYYY" 
+                    onChange={this.handleDateChange} 
+                    value={this.state.customer.pickUpTime} 
+                    name="pickUpTime" />
           <br/>
           <label>Nome:
           </label>
           <br/>
-          <input className="formulario" onChange={this.handleChange} value={this.state.customer.name} name="name" type="text" placeholder="Nome"/>
+          <input className="formulario" 
+                 onChange={this.handleChange} 
+                 value={this.state.customer.name} 
+                 name="name" 
+                 type="text" 
+                 placeholder="Nome"/>
           <br/>
           <label>
             <i className="fa fa-phone" aria-hidden="true"></i>
           </label>
           <br/>
-          <input className="formulario" onChange={this.handleChange} value={this.state.customer.phone} name="phone" type="tel" placeholder="Telefone"/>
+          <input className="formulario" 
+                 onChange={this.handleChange} 
+                 value={this.state.customer.phone} 
+                 name="phone" 
+                 type="tel" 
+                 placeholder="Telefone"/>
           <br/>
         </form>
         <div className="placeOrder">

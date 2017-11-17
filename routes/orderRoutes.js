@@ -1,7 +1,22 @@
 const express = require("express");
 const orderRoutes = express.Router();
 const Order = require("../models/order");
+const nodemailer = require('nodemailer');
 
+ const transporter = nodemailer.createTransport({
+ service: 'gmail',
+ auth: {
+        user: 'fairyland.encomenda@gmail.com',
+        pass: 'redvelvet'
+    }
+});
+
+const mailOptions = {
+  from: 'fairyland.encomenda@gmail.com', // sender address
+  to: 'arlinhu@hotmail.com', // list of receivers
+  subject: 'Order Confirmation', // Subject line
+  html: '<p>Your html here</p>'// plain text body
+};
 
 orderRoutes.get("/:id", (req, res)=>{
   Order.findById(req.params.id).populate("items.cupcake").exec((err, order)=>{
@@ -13,8 +28,15 @@ orderRoutes.get("/:id", (req, res)=>{
 orderRoutes.post("/", (req, res)=>{
   const newOrder = new Order (req.body);
   newOrder.save((err, order)=>{
-    if (err) return res.status(500).send(err);
-    
+    if (err) {return res.status(500).send(err);
+    }else{
+        transporter.sendMail(mailOptions, function (err, info) {
+   if(err)
+     console.log(err)
+   else
+     console.log(info);
+});
+    }
     return res.send(order);
   })
 })
