@@ -16,6 +16,7 @@ class OrderContainer extends React.Component {
       customer: {
         name: "",
         phone: "",
+        email: "",
         pickUpTime: null
       }
     }
@@ -23,7 +24,7 @@ class OrderContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    
+
   }
 
   generateOrder() {
@@ -63,14 +64,14 @@ class OrderContainer extends React.Component {
        this.props.history.push(`/confirmation/${response.data._id}`);
      })
   }
-  
-  
+
+
   render() {
     const yesterday = Datetime.moment().subtract(1, 'day');
     const valid = function( current ){
         return current.isAfter( yesterday ) && current.day() !== 1 && current.day() !== 2;
     };
-  
+
     return (
       <div className="orderReview">
         <h3>Your order below:</h3>
@@ -90,14 +91,34 @@ class OrderContainer extends React.Component {
           <label>Nome:
           </label>
           <br/>
-          <input className="formulario" onChange={this.handleChange} value={this.state.customer.name} name="name" type="text" placeholder="Nome"/>
+        <input
+            className="formulario"
+            onChange={this.handleChange}
+            value={this.state.customer.name}
+            name="name"
+            type="text"
+            placeholder="Nome"/>
           <br/>
-          <label>
-            <i className="fa fa-phone" aria-hidden="true"></i>
+      <label><i className="fa fa-lg fa-phone" aria-hidden="true"></i></label>
+          <br/>
+          <input
+              className="formulario"
+              onChange={this.handleChange}
+              value={this.state.customer.phone}
+              name="phone"
+              type="tel"
+              placeholder="Telefone"/>
+          <br/>
+      <label>Email:
           </label>
           <br/>
-          <input className="formulario" onChange={this.handleChange} value={this.state.customer.phone} name="phone" type="tel" placeholder="Telefone"/>
-          <br/>
+      <input
+          className="formulario"
+          onChange={this.handleChange}
+          value={this.state.customer.email}
+          name="email"
+          type="email"
+          placeholder="Email"/>
         </form>
         <div className="placeOrder">
           <Link to="/cupcakes">

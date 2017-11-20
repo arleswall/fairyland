@@ -1,6 +1,8 @@
 const express = require("express");
 const orderRoutes = express.Router();
 const Order = require("../models/order");
+const sendEmail = require("./email");
+
 
 
 orderRoutes.get("/:id", (req, res)=>{
@@ -11,12 +13,16 @@ orderRoutes.get("/:id", (req, res)=>{
 })
 
 orderRoutes.post("/", (req, res)=>{
-  const newOrder = new Order (req.body);
+  const newOrder = new Order(req.body);
   newOrder.save((err, order)=>{
-    if (err) return res.status(500).send(err);
-    
+    if (err) {
+        return res.status(500).send(err);
+    } else {
+    sendEmail(order);
+
+}
     return res.send(order);
-  })
+        })
 })
 
 orderRoutes.delete("/:id", (req, res)=>{

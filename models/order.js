@@ -16,11 +16,15 @@ const orderSchema = new Schema({
         phone: {
           type: String,
           required: true
-        },    
+        },
         pickUpTime: {
           type: Date,
           required: true
-    }
+      },
+      email:{
+          type: String,
+          required: true
+      }
   },
   completed: {
     type: Boolean,
