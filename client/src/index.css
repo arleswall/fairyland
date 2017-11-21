@@ -91,14 +91,14 @@ i:hover{
   border: none;
   background-color: #77B2BE;
   color:#DCE2F0;
-  font-size: 2.5em;
-  float: right;
+  font-size: 2.3em;
 }
 
 .reviewOrderButton:hover{
   background-color: #DCE2F0;
   color: #77B2BE;
   cursor: pointer;
+
 }
 .cupcakesBox{
   background-color: #F2E0E4;
@@ -255,8 +255,18 @@ i:hover{
   text-align: center;
 }
 .formulario{
-  width: 25%;
+  width: 30%;
   margin-bottom: 1%;
+}
+@media (max-width: 599px) {
+  .formulario {
+      width: 80%;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+   }
 }
 
 .placeOrder{
@@ -277,8 +287,18 @@ i:hover{
   cursor: pointer;
 }
 .datepicker{
-  width: 25%;
+  width: 30%;
   margin: auto;
+}
+@media (max-width: 599px) {
+  .datepicker {
+      width: 80%;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+   }
 }
 
 .thankYouBox{
@@ -293,7 +313,7 @@ i:hover{
   margin: auto;
   margin-top: 0;
   border-bottom: 2px solid #78B0BE;
-  color: black;
+  color: #705F4E;
   background-color: #DEE4F0;
   width: 60%;
   text-align: right;
@@ -358,6 +378,23 @@ input[type=checkbox]:hover{
   background-color: #DEE4F0;
   width: 100%;
 }
+@media (max-width: 599px) {
+  .omsBox {
+      width: 100%;
+      padding-left: 10px;
+      padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+      padding-bottom: 0px;
+   }
+}
+
+
+
 .totalCostOms{
   margin-top: 0;
   border-bottom: 2px solid #78B0BE;

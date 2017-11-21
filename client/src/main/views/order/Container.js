@@ -1,7 +1,6 @@
 import React from "react"
 import OrderComponent from "./Component";
 import {connect} from "react-redux";
-// import {cupcakes} from "../../../redux//";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Datetime from "react-datetime";
