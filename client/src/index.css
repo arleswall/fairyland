@@ -89,11 +89,7 @@ i:hover{
     padding-top: 220px;
 
 }
-@media (max-width: 599px) {
-  .reviewOrderButtonBox {
-     padding-top: 40px;
-  }
-}
+
 .basket {
     color: #705F4E;
 }
@@ -135,19 +131,20 @@ i:hover{
   background-color: #F2E0E4;
   display: inline-block;
   text-align: center;
-  padding: 4%;
+  padding: 2%;
   padding-top: 60px;
   border: 1px solid #ECC2CE;
   width: 33%;
   vertical-align: top;
-  height: 630px;
+  height: 650px;
 }
 
 .reviewBox{
     width: 33%;
     background-color: #F2E0E4;
     display: inline-block;
-    height: 630px;
+    height: 650px;
+
 }
 @media (max-width: 599px) {
   .reviewBox {
@@ -160,13 +157,35 @@ i:hover{
       width: 33%%;
    }
 }
-@media (max-width: 800px) {
-  .cupcakesBox { width: 100%; }
+@media (max-width: 599px) {
+  .cupcakesBox { 
+      width: 100%;
+      height: auto;
+   }
+   .cupcakeDescription{
+       display: none
+   }
+   .reviewOrderButtonBox {
+      padding-top: 40px;
+      padding-bottom: 70px;
+   }
+   .reviewBox{
+       height: auto;
+   }
 }
 @media screen and (max-width: 900px) and (min-width: 600px) {
-  .cupcakesBox { width: 33%; }
+  .cupcakesBox { 
+      width: 50%; 
+  }
+  .reviewOrderButtonBox {
+     padding-top: 40px;
+     padding-bottom: 70px;
+  }
+  .reviewBox{
+      height: auto;
+      width: 100%;
+  }
 }
-
 
 .cupcakeTitle{
   color: #3A322C;
@@ -174,7 +193,6 @@ i:hover{
   font-size: 36px;
   font-weight: 400;
   font-style: italic;
-  height: 70px;
   text-align: center;
   margin-bottom: 30px;
 
@@ -182,6 +200,10 @@ i:hover{
 .cupcakeDescription{
     height: 110px;
     font-family: 'Poiret One', cursive;
+    margin-bottom: 0px;
+    padding-left: 7%;
+    padding-right: 7%;
+
 }
 .cupcakePrice{
     display: flex;
@@ -189,8 +211,13 @@ i:hover{
     font-size: 14px;
     height: 30px;
 }
+
+.cupcakePicBox{
+    /*background-color: rgba(255, 255, 255, 1);*/
+
+}
 .cupcakePic{
-  width: 140px;
+  width: 200px;
 }
 .cupcakes a {
   text-decoration: none;
@@ -235,6 +262,7 @@ i:hover{
 
 .orderOptions{
   text-align: center;
+
 }
 .about{
   background-color: #B6D1D2;
