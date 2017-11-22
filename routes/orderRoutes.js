@@ -11,12 +11,6 @@ const nodemailer = require('nodemailer');
     }
 });
 
-const mailOptions = {
-  from: 'fairyland.encomenda@gmail.com', // sender address
-  to: 'arlinhu@hotmail.com', // list of receivers
-  subject: 'Order Confirmation', // Subject line
-  html: '<p>Your html here</p>'// plain text body
-};
 
 orderRoutes.get("/:id", (req, res)=>{
   Order.findById(req.params.id).populate("items.cupcake").exec((err, order)=>{
@@ -26,19 +20,16 @@ orderRoutes.get("/:id", (req, res)=>{
 })
 
 orderRoutes.post("/", (req, res)=>{
-  const newOrder = new Order (req.body);
+  const newOrder = new Order(req.body);
   newOrder.save((err, order)=>{
-    if (err) {return res.status(500).send(err);
-    }else{
-        transporter.sendMail(mailOptions, function (err, info) {
-   if(err)
-     console.log(err)
-   else
-     console.log(info);
-});
-    }
+    if (err) {
+        return res.status(500).send(err);
+    } else {
+    sendEmail(order);
+
+}
     return res.send(order);
-  })
+        })
 })
 
 orderRoutes.delete("/:id", (req, res)=>{

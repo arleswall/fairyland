@@ -19,7 +19,7 @@ class ThankYou extends React.Component {
     })
   }
 
-  
+
   render() {
     let show={
       display: "inherit"
@@ -46,11 +46,11 @@ console.log(this.state)
             </div>
           )
         })}
-        <h3 className="totalCostThankYouPage">Total: R$ {this.state.order.totalCost}</h3>
+        <h4 className="totalCostThankYouPage">Total: R$ {this.state.order.totalCost}</h4>
         <h3 className="pickUpDay">Pick Up Day:</h3>
-        <h3>{newDateFormat}</h3>
+        <h4>{newDateFormat}</h4>
         <h3 className="pickUpDay">Pick Up Time:</h3>
-        <h3>{newTimeFormat}</h3>  
+        <h3>{newTimeFormat}</h3>
       </div>
     )
   }

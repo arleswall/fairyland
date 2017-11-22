@@ -78,27 +78,57 @@ i:hover{
 .foodMenu{
   background-color: #F1D3DA;
   padding-bottom: 5vh;
-  
-}
-.reviewOrderButtonBox{
-  display: inline-block;
- margin-top: 35%;
- margin-left: 1%;
- 
+
 
 }
+.reviewOrderButtonBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-top: 220px;
+    /*position: relative;*/
+}
+@media (max-width: 599px) {
+  .reviewOrderButtonBox {
+     padding-top: 40px;
+  }
+}
+.basket {
+    color: #705F4E;
+}
+
+
+
+
 .reviewOrderButton{
-  border: none;
-  background-color: #77B2BE;
-  color:#DCE2F0;
-  font-size: 2.5em;
-  float: right;
+  background-color:#77B2BE;
+  border: 1px solid  #705F4E;
+  box-shadow: 2px 2px 2px #705F4E;
+  color: #DCE2F0;
+  font-size: 2.3em;
+  height: 50%;
+  width:85%;
+  border-radius: 2px;
+
+
+
+}
+.reviewImage{
+    height: 20vh;
+    width: 20vh;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: auto;
+
 }
 
 .reviewOrderButton:hover{
   background-color: #DCE2F0;
   color: #77B2BE;
   cursor: pointer;
+
 }
 .cupcakesBox{
   background-color: #F2E0E4;
@@ -111,14 +141,26 @@ i:hover{
   vertical-align: top;
   height: 630px;
 }
+
+.reviewBox{
+    width: 20%;
+    background-color: #F2E0E4;
+    display: inline-block;
+    height: 700px;
+}
 @media (max-width: 599px) {
-  .cupcakesBox { 
-      width: 100%; 
+  .reviewBox {
+      width: 100%;
       height: 550px;
   }
-  .cupcakeDescription {
-      display: none;
-  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .reviewBox {
+      width: 33%%;
+   }
+}
+@media (max-width: 800px) {
+  .cupcakesBox { width: 100%; }
 }
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .cupcakesBox { width: 33%; }
@@ -184,7 +226,7 @@ i:hover{
   font-size: 1.3em;
   border: none;
   outline: none;
-  
+
 }
 
 .addButton:hover{
@@ -229,7 +271,7 @@ i:hover{
   border-top: 2px solid #49413B;
   border-bottom: 2px solid #49413B;
   padding-bottom: 20px;
-  
+
 }
 .footer {
   position: fixed;
@@ -247,7 +289,7 @@ i:hover{
 }
 
 .orderReview{
-  padding-top: 10%;
+  padding-top: 90px;
   text-align: center;
   background-color: #F5DFE4;
   height: auto;
@@ -256,6 +298,7 @@ i:hover{
   display: inline-block;
   width: 50%;
   text-align: center;
+  color:black;
 }
 
 .reviewOrderBox{
@@ -264,10 +307,11 @@ i:hover{
   padding-right: 2%;
   justify-content: space-between;
   border-bottom: 2px solid #78B0BE;
-  color: #78B0BE;
+  color: #705F4E;
   background-color: #DEE4F0;
   margin: auto;
   width: 60%;
+
 }
 .totalCost{
   font-size: 2em;
@@ -275,12 +319,22 @@ i:hover{
   margin-bottom: 5%;
 }
 .formularioBox{
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   text-align: center;
 }
 .formulario{
-  width: 25%;
+  width: 30%;
   margin-bottom: 1%;
+}
+@media (max-width: 599px) {
+  .formulario {
+      width: 80%;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+   }
 }
 
 .placeOrder{
@@ -301,8 +355,18 @@ i:hover{
   cursor: pointer;
 }
 .datepicker{
-  width: 25%;
+  width: 30%;
   margin: auto;
+}
+@media (max-width: 599px) {
+  .datepicker {
+      width: 80%;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+   }
 }
 
 .thankYouBox{
@@ -310,14 +374,14 @@ i:hover{
   padding-top: 150px;
   padding-bottom: 100px;
   background-color: #F2E0E4;
-  height: 100%;
+  height: auto;
   color: #705F4E;
 }
 .totalCostThankYouPage{
   margin: auto;
   margin-top: 0;
   border-bottom: 2px solid #78B0BE;
-  color: #78B0BE;
+  color: #705F4E;
   background-color: #DEE4F0;
   width: 60%;
   text-align: right;
@@ -325,6 +389,8 @@ i:hover{
 }
 .pickUpDay{
   font-size: 15px;
+  background-color: #F2E0E4;
+
 }
 .logoutBox{
   background-color: #F2E0E4;
@@ -352,13 +418,14 @@ input[type=checkbox]:hover{
   height: 100%;
   color: #3B332D;
   display: inline-block;
-  padding-left: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
   vertical-align: top;
   width: 33%;
 }
 .orderNumberOms{
     font-size: 1.7em;
-    color: black;
+    color:black ;
 }
 .omsBackground{
   background-color: #F2E0E4;
@@ -367,7 +434,7 @@ input[type=checkbox]:hover{
   display: inline-block;
   justify-content: space-between;
   width: 49%;
-  
+
 }
 .omsListBox{
   display: flex;
@@ -379,6 +446,23 @@ input[type=checkbox]:hover{
   background-color: #DEE4F0;
   width: 100%;
 }
+@media (max-width: 599px) {
+  .omsBox {
+      width: 100%;
+      padding-left: 10px;
+      padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .omsBox {
+      width: 50%;
+      padding-bottom: 0px;
+   }
+}
+
+
+
 .totalCostOms{
   margin-top: 0;
   border-bottom: 2px solid #78B0BE;
@@ -387,9 +471,9 @@ input[type=checkbox]:hover{
   width: 50%;
   padding:1%;
   font-style: italic;
-  font-size: 2em;
+  font-size: 1.7em;
   color: black;
-  
+
 }
 .pickUpDayOms{
   font-size: 15px;

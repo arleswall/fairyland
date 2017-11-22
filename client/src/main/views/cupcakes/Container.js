@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import CupcakesComponent from "./Component"
 import axios from "axios";
 import {connect} from "react-redux";
+import logo from "../../../fairy_logo.png";
 // import * as actions from "../../../redux/orders";
 // import OrderComponent from "../order/Component";
 
@@ -14,7 +15,7 @@ class CupcakesContainer extends React.Component{
       order: {}
     }
   }
-  
+
   componentDidMount(){
       axios.get('http://localhost:8000/cupcake/').then(response => {
         this.setState({
@@ -22,7 +23,7 @@ class CupcakesContainer extends React.Component{
         })
       })
     }
-  
+
 
   genList(){
     return this.state.cupcakes.map((item)=>{
@@ -31,15 +32,19 @@ class CupcakesContainer extends React.Component{
       )
     })
   }
-  
-  
-  
+
+
+
   render(){
     return(
       <div className="foodMenu">
           {this.genList()}
+          <div className="reviewBox">
           <div className="reviewOrderButtonBox">
-              <Link to="/order"><button className="reviewOrderButton">Review Order</button></Link>
+            <Link to="/order" style={{alignSelf: "center", display: "flex", justifyContent: "center"}} ><i className="basket fa fa-4x fa-shopping-basket"></i></Link>
+            <br/>
+            <Link to="/order" style={{alignSelf: "center", display: "flex", justifyContent: "center"}}><button className="reviewOrderButton">Review Your Order</button></Link>
+          </div>
           </div>
       </div>
     )

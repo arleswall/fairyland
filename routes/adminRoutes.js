@@ -9,6 +9,7 @@ const adminRouter = express.Router();
 
 passport.use(new Strategy((usernameAttempt, passwordAttempt, done)=>{
   Admin.findOne({username: usernameAttempt}, (err, currentUser)=>{
+      console.log(currentUser)
     if (err){
       done(err, false);
     } else if (currentUser === null) {
@@ -23,7 +24,7 @@ passport.use(new Strategy((usernameAttempt, passwordAttempt, done)=>{
 
 adminRouter.use(passport.initialize());
 
-adminRouter.post("/login", passport.authenticate("local", {session: false}), (req, res) => {  
+adminRouter.post("/login", passport.authenticate("local", {session: false}), (req, res) => {
   Admin.findOne({username: req.body.username}, (err, user)=>{
     if (err) {
       res.status(500).send({

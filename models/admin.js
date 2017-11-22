@@ -1,12 +1,12 @@
 
-const mongoose = require("mongoose");  
-const bcrypt = require("bcrypt");  
-const salt = bcrypt.genSaltSync(10); 
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const salt = bcrypt.genSaltSync(10);
 const Schema = mongoose.Schema;
 
 const adminSchema = new Schema ({
   name: String,
-  
+
   username: {
     type: String,
     required: true,
@@ -23,7 +23,7 @@ const adminSchema = new Schema ({
     }
 });
 
-adminSchema.pre("save", function(next) {  
+adminSchema.pre("save", function(next) {
   this.password = bcrypt.hashSync(this.password, salt)
   next();
 });
@@ -34,6 +34,7 @@ adminSchema.methods.auth = function(passwordAttempt, cb){
       console.log(err);
       cb(false);
     } else {
+        console.log(isMatch)
       cb(isMatch);
     }
   });

@@ -1,7 +1,6 @@
 import React from "react"
 import OrderComponent from "./Component";
 import {connect} from "react-redux";
-// import {cupcakes} from "../../../redux//";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Datetime from "react-datetime";
@@ -17,6 +16,7 @@ class OrderContainer extends React.Component {
       customer: {
         name: "",
         phone: "",
+        email: "",
         pickUpTime: null
       }
     }
@@ -24,7 +24,7 @@ class OrderContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    
+
   }
 
   generateOrder() {
@@ -63,8 +63,8 @@ class OrderContainer extends React.Component {
        this.props.history.push(`/confirmation/${response.data._id}`);
      })
   }
-  
-  
+
+
   render() {
       const onSuccess = (payment) => {
             console.log("Your payment was succeeded!", payment);
@@ -87,7 +87,7 @@ class OrderContainer extends React.Component {
     const valid = function( current ){
         return current.isAfter( yesterday ) && current.day() !== 1 && current.day() !== 2;
     };
-  
+
     return (
       <div className="orderReview">
         <h3>Your order below:</h3>
@@ -121,16 +121,35 @@ class OrderContainer extends React.Component {
                  type="text" 
                  placeholder="Nome"/>
           <br/>
-          <label>
-            <i className="fa fa-phone" aria-hidden="true"></i>
-          </label>
+      <label><i className="fa fa-lg fa-phone" aria-hidden="true"></i></label>
           <br/>
-          <input className="formulario" 
-                 onChange={this.handleChange} 
-                 value={this.state.customer.phone} 
-                 name="phone" 
-                 type="tel" 
-                 placeholder="Telefone"/>
+          <input
+              className="formulario"
+              onChange={this.handleChange}
+              value={this.state.customer.phone}
+              name="phone"
+              type="tel"
+              placeholder="Telefone"/>
+          <br/>
+      <label>Email:
+          </label>
+            <br/>
+            <input className="formulario"
+            onChange={this.handleChange}
+            value={this.state.customer.phone}
+            name="phone"
+            type="tel"
+            placeholder="Telefone"/>
+            <br/>
+      <input
+          className="formulario"
+          onChange={this.handleChange}
+          value={this.state.customer.email}
+          name="email"
+          type="email"
+          placeholder="Email"/>
+
+         
           <br/>
 </form>
             <PaypalExpressBtn 
