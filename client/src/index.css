@@ -24,13 +24,14 @@ a:link{
 .orderButton{
   font-family: serif;
   font-weight: 300;
-  border: 3px solid #705F4E;
+  border: 3px solid #77B2BE;
   color: #705F4E;
   background-color: transparent;
   box-sizing: border-box;
   font-size: 25px;
   padding: 1em 2em;
   transition: background-color .1s 0s ease-in-out,color .1s 0s ease-in-out;
+
 }
 
 .orderButton:hover{
@@ -51,7 +52,6 @@ a:link{
 
 .socialmediabox{
   width: 100%;
-  /*text-align: center;*/
   background-image: url("./pics/bottom-background.png");
   border-top: 3px solid #77B1BE;
   height: 20vh;
@@ -87,7 +87,7 @@ i:hover{
     justify-content: center;
     align-content: center;
     padding-top: 220px;
-    /*position: relative;*/
+
 }
 
 .basket {
@@ -106,6 +106,7 @@ i:hover{
   height: 50%;
   width:85%;
   border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
 
 
 
@@ -143,6 +144,7 @@ i:hover{
     background-color: #F2E0E4;
     display: inline-block;
     height: 650px;
+
 }
 @media (max-width: 599px) {
   .reviewBox {
@@ -186,26 +188,27 @@ i:hover{
 }
 
 .cupcakeTitle{
-  color: #3A322C; 
-  font-family: serif; 
-  font-size: 36px; 
-  font-weight: 400; 
-  font-style: italic; 
+  color: #3A322C;
+  font-family: serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: italic;
   text-align: center;
   margin-bottom: 30px;
 
 }
 .cupcakeDescription{
     height: 110px;
-    font-family: serif;
+    font-family: 'Poiret One', cursive;
     margin-bottom: 0px;
     padding-left: 7%;
     padding-right: 7%;
+
 }
 .cupcakePrice{
     display: flex;
-    font-family: sans-serif;
-    font-size: 14px;  
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     height: 30px;
 }
 
@@ -265,7 +268,7 @@ i:hover{
   background-color: #B6D1D2;
   padding-top: 150px;
     color: #49413B;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .tripAdvisorBox{
   display: flex;
@@ -300,6 +303,7 @@ i:hover{
   height: 5vh;
   font-size: 1.5em;
   background-color: #ECC2CE;
+  font-family: 'Roboto', sans-serif;
 }
 .aboutLink{
   color: #77B2BD;
@@ -310,12 +314,15 @@ i:hover{
   text-align: center;
   background-color: #F5DFE4;
   height: auto;
+  font-family: 'Roboto', sans-serif;
 }
 .reviewTopBar{
   display: inline-block;
   width: 50%;
   text-align: center;
-  color:black;
+  color:#77B2BE;
+  font-size: 1.9em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .reviewOrderBox{
@@ -328,12 +335,14 @@ i:hover{
   background-color: #DEE4F0;
   margin: auto;
   width: 60%;
+  font-family: 'Roboto', sans-serif;
 
 }
 .totalCost{
   font-size: 2em;
   margin-top: 5%;
   margin-bottom: 5%;
+  font-family: 'Roboto', sans-serif;
 }
 .formularioBox{
   margin-bottom: 2%;
@@ -393,6 +402,8 @@ i:hover{
   background-color: #F2E0E4;
   height: auto;
   color: #705F4E;
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
 }
 .totalCostThankYouPage{
   margin: auto;
@@ -429,8 +440,8 @@ input[type=checkbox]:hover{
 }
 
 .omsBox{
-  padding-top: 120px;
-  padding-bottom: 50px;
+  padding-top: 100px;
+  padding-bottom: 20px;
   background-color: #F2E0E4;
   height: 100%;
   color: #3B332D;
@@ -439,6 +450,7 @@ input[type=checkbox]:hover{
   padding-right: 2%;
   vertical-align: top;
   width: 33%;
+  font-family: 'Roboto', sans-serif;
 }
 .orderNumberOms{
     font-size: 1.7em;
@@ -460,6 +472,7 @@ input[type=checkbox]:hover{
   justify-content: space-between;
   border-bottom: 2px solid #78B0BE;
   color: #3B332D;
+  font-family: 'Roboto', sans-serif;
   background-color: #DEE4F0;
   width: 100%;
 }
@@ -487,9 +500,11 @@ input[type=checkbox]:hover{
   background-color: #DEE4F0;
   width: 50%;
   padding:1%;
-  font-style: italic;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.7em;
-  color: black;
+  color: #3B332D;
+  float:right;
+  text-align: center;
 
 }
 .pickUpDayOms{
@@ -505,9 +520,11 @@ input[type=checkbox]:hover{
   text-align: center;
   margin-top: 200px;
   font-size: 2em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .signin{
   display: block;
   margin: auto;
+
 }
