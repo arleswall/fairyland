@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Datetime from "react-datetime";
+import PaypalExpressBtn from './PayPalExpressCheckOut';
 
 require('moment/locale/pt-br');
 
@@ -56,8 +57,7 @@ class OrderContainer extends React.Component {
     })
   }
 
-  placeOrder(e) {
-    e.preventDefault();
+  placeOrder() {
     axios.post('http://localhost:8000/order/', this.state).then(response =>{
       console.log(response.data);
        this.props.history.push(`/confirmation/${response.data._id}`);
@@ -66,6 +66,23 @@ class OrderContainer extends React.Component {
   
   
   render() {
+      const onSuccess = (payment) => {
+            console.log("Your payment was succeeded!", payment);
+            this.placeOrder()
+            
+        }	        
+        const onCancel = (data) => {
+            // User pressed "cancel" or close Paypal's popup! 
+            console.log('You have cancelled the payment!', data);
+        }	        
+        const onError = (err) => {
+ // The main Paypal's script cannot be loaded or somethings block the loading of that script! 
+            console.log("Error!", err);
+// Since the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js" 
+// => sometimes it may take about 0.5 second for everything to get set, or for the button to appear			 
+        }		            
+        let currency = 'BRL'; // or you can set this value from your props or state   
+        let total = this.props.order.totalCost;
     const yesterday = Datetime.moment().subtract(1, 'day');
     const valid = function( current ){
         return current.isAfter( yesterday ) && current.day() !== 1 && current.day() !== 2;
@@ -115,12 +132,18 @@ class OrderContainer extends React.Component {
                  type="tel" 
                  placeholder="Telefone"/>
           <br/>
-        </form>
+</form>
+            <PaypalExpressBtn 
+                    currency={currency}
+                    total={total}
+                    onError={onError}
+                    onSuccess={onSuccess}
+                    onCancel={onCancel}/>
         <div className="placeOrder">
           <Link to="/cupcakes">
-            <button className="placeOrderButtons">Go back</button>
+            <button className="placeOrderButtons"><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
           </Link>
-            <button className="placeOrderButtons" onClick={this.placeOrder}>Place order</button>
+            {/*<button className="placeOrderButtons" onClick={this.placeOrder}>Place order</button>*/}
         </div>
       </div>
     )
