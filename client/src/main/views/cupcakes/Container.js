@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import CupcakesComponent from "./Component"
 import axios from "axios";
 import {connect} from "react-redux";
-import logo from "../../../fairy_logo.png";
 // import * as actions from "../../../redux/orders";
 // import OrderComponent from "../order/Component";
 
