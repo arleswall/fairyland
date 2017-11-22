@@ -86,7 +86,7 @@ i:hover{
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    padding-top: 300px
+    padding-top: 220px;
     /*position: relative;*/
 }
 @media (max-width: 599px) {
