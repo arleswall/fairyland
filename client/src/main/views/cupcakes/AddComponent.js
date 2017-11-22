@@ -29,7 +29,6 @@ function AddComponent(props){
               <br/>
               <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "regular")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
               </div>
-            <h4>R</h4>
           </div>
           <div className={props.cupcake.price.regular? "minis" : "minisCenter"}>
                 <div className="numbers">
@@ -40,7 +39,6 @@ function AddComponent(props){
                 <br/>
                 <button className="addButton" onClick={()=>{props.removeItem(props.cupcake, "mini")}}><i className="fa fa-minus" aria-hidden="true"></i></button>
               </div>  
-              <h4>M</h4>
           </div>
     </div>
   )
