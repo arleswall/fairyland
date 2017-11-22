@@ -14,25 +14,20 @@ const transporter = nodemailer.createTransport({
 
 
 function sendEmail(order){
-    //let url = "http://healthyrise.com/wp-content/uploads/2016/07/Cupcake-3.jpg";
     const mailOptions = {
       from: 'fairyland.encomenda@gmail.com',
       to: order.customer.email,
       subject: `Order Number ${order._id} Confirmation`,
-       html:createEmail(order)
-
-    //    'Embedded image: <img src="cid:unique@nodemailer.com"/>',
-    // attachments: [{
-    //     filename: 'image.png',
-    //     path: url,
-    //     cid: 'unique@nodemailer.com' //same cid value as in the html img src
-    // }]
-
-
-
-
-
+       html:
+       createEmail(order),
+       //' <img src=cid:unique@kreata.ee/>',
+    attachments: [{
+        filename: 'fairy_logo.png',
+        path: __dirname + "/image/fairy_logo.png",
+        cid: 'unique@kreata.ee' //same cid value as in the html img src
+        }]
     };
+
     transporter.sendMail(mailOptions, function (err, info) {
         if(err)
          console.log(err)
@@ -45,10 +40,12 @@ function createEmail(order){
     //let url = "http://healthyrise.com/wp-content/uploads/2016/07/Cupcake-3.jpg";
     let newDateFormat = moment(order.customer.pickUpTime).format("dddd, D MMMM YYYY");
     let newTimeFormat = moment(order.customer.pickUpTime).format("h:mm")
-    return `
-        <div style="height: 100vh; text-align:center; background-color: #F2E0E4; font-family:serif; color: #585143	;">
+    return (`
+        <div style="height: 100vh; text-align:center; background-color: #F2E0E4; font-family:serif; color: #585143">
+            <div style="display:flex; padding-top: 20px width:100%; text-align:center; justify-content: center; align-self:center">
+                <img style="width: 150px; height: 150px;" src="cid:unique@kreata.ee"/>
+            </div>
             <br>
-            <img alt="My Image" src="data:image/jpeg;base64, url" />
             <h1>${order.customer.name}, we appreciate your order!</h1>
             </br>
             <h2>Your order number is  <span style="font-size: 1.7em"> ${order._id}</span><h2>
@@ -58,6 +55,6 @@ function createEmail(order){
             <br>
             <h2>If you have any questions call us at <span style="font-size: 1.3em">(48) 3209-7462</span></h2>
         </div>
-    `
+    `)
 }
 module.exports = sendEmail

@@ -79,19 +79,49 @@ i:hover{
   background-color: #F1D3DA;
   padding-bottom: 5vh;
 
+
 }
 .reviewOrderButtonBox{
-  display: inline-block;
- margin-top: 35%;
- margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-top: 300px
+    /*position: relative;*/
+}
+@media (max-width: 599px) {
+  .reviewOrderButtonBox {
+     padding-top: 40px;
+  }
+}
+.basket {
+    color: #705F4E;
+}
+
+
+
+
+.reviewOrderButton{
+  background-color:#77B2BE;
+  border: 1px solid  #705F4E;
+  box-shadow: 2px 2px 2px #705F4E;
+  color: #DCE2F0;
+  font-size: 2.3em;
+  height: 50%;
+  width:85%;
+  border-radius: 2px;
+
 
 
 }
-.reviewOrderButton{
-  border: none;
-  background-color: #77B2BE;
-  color:#DCE2F0;
-  font-size: 2.3em;
+.reviewImage{
+    height: 20vh;
+    width: 20vh;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: auto;
+
 }
 
 .reviewOrderButton:hover{
@@ -110,6 +140,24 @@ i:hover{
   width: 20%;
   vertical-align: top;
   height: 700px;
+}
+
+.reviewBox{
+    width: 20%;
+    background-color: #F2E0E4;
+    display: inline-block;
+    height: 700px;
+}
+@media (max-width: 599px) {
+  .reviewBox {
+      width: 100%;
+      height: 550px;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .reviewBox {
+      width: 33%%;
+   }
 }
 @media (max-width: 800px) {
   .cupcakesBox { width: 100%; }
