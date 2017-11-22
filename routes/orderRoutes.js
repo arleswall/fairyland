@@ -1,8 +1,15 @@
 const express = require("express");
 const orderRoutes = express.Router();
 const Order = require("../models/order");
-const sendEmail = require("./email");
+const nodemailer = require('nodemailer');
 
+ const transporter = nodemailer.createTransport({
+ service: 'gmail',
+ auth: {
+        user: 'fairyland.encomenda@gmail.com',
+        pass: 'redvelvet'
+    }
+});
 
 
 orderRoutes.get("/:id", (req, res)=>{
