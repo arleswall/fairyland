@@ -20,11 +20,11 @@ function sendEmail(order){
       subject: `Order Number ${order._id} Confirmation`,
        html:
        createEmail(order),
-       //' <img src=cid:unique@kreata.ee/>',
+
     attachments: [{
         filename: 'fairy_logo.png',
         path: __dirname + "/image/fairy_logo.png",
-        cid: 'unique@kreata.ee' //same cid value as in the html img src
+        cid: 'unique@kreata.ee' 
         }]
     };
 

@@ -9,14 +9,14 @@ function AdminComponent(props){
       display: "none"
     }
     let completed = {
-        color: "#1EC049",
+        color: "#10A45A",
         fontSize: "2em",
-        fontFamily: "monospace"
+        fontFamily:  "'Roboto', sans-serif"
     }
     let pending = {
-        color: "#C71129",
+        color: "#BC1139",
         fontSize: "2em",
-        fontFamily: "monospace"
+        fontFamily: "'Roboto', sans-serif"
     }
     let pickupTime = props.order.customer.pickUpTime;
     let newDateFormat = moment(pickupTime).format("dddd, D MMMM YYYY");
