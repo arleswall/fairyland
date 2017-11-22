@@ -10,7 +10,7 @@ class PaypalButton extends React.Component {
     window.ReactDOM = ReactDOM;
     this.state = {
       showButton: false,
-      env: 'sandbox', // Or 'sandbox'
+      env: 'production', // Or 'sandbox'
       client: {
         sandbox:    'AbLJeEIqN0CMQ2NKrBwUA5ZEH4JWPTMhTbe-6Wu0WfDbb0Zzjz69OEECy5m4lr1eoIKfBYTjPnm3lU6b', // sandbox client ID
         production: 'AUUZW6xTiPMVOnblHpk3MUVepgkoXv9McJN9Of7l6Mu8LpoxbkJxUhRKZw8VnaFx384fOSO3Pbt-zlwY' // production client ID
@@ -43,8 +43,9 @@ class PaypalButton extends React.Component {
                     { amount: { total: this.props.total, currency: this.props.currency } },
       ],
     });
- 
-    const onAuthorize = (data, actions) => actions.payment.execute().then(() => {
+    console.log(window.paypal);
+    const onAuthorize = (data, actions) => {
+        actions.payment.execute().then(() => {
       const payment = Object.assign({}, this.props.payment);
       payment.paid = true;
       payment.cancelled = false;
@@ -53,12 +54,21 @@ class PaypalButton extends React.Component {
       payment.paymentToken = data.paymentToken;
       payment.returnUrl = data.returnUrl;
       this.props.onSuccess(payment);
-    });
+    })
+};
  
     let ppbtn = '';
     if (this.state.showButton) {
         let Button = window.paypal.Button.react;
         ppbtn = (<Button
+            style= {{
+        size: 'medium',
+        color: 'blue',
+        shape: 'rect',
+        label: 'pay'
+    }}
+        locale= {'pt_BR'}
+        
         env={this.state.env}
         client={this.state.client}
         payment={payment}
