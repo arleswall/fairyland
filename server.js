@@ -34,7 +34,7 @@ app.use("/admin", require("./routes/adminRoutes"))
 app.use("/admin/orders", require("./routes/orderListRoutes"))
 
 app.get("/", (req, res)=>{
-res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
 })
 
 app.listen(settings.port, ()=>{
