@@ -1,4 +1,4 @@
-console.log(process.env.SECRET);
+console.log(process.env.MONGODB_URI);
 
 module.exports = {
     port: process.env.PORT || 8000,

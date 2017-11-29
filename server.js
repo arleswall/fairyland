@@ -31,15 +31,19 @@ const connection = mongoose.connect(settings.db, (err)=>{
 autoIncrement.initialize(connection);
 
 app.use(express.static(path.resolve(__dirname, "client", "build")));
+app.get("/", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+});
+app.get("/admin", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
 app.use("/cupcake", require("./routes/cupcakeRoutes"))
 app.use("/order", require("./routes/orderRoutes"))
 
-app.use("/admin", expressJwt({ secret: settings.secret }), require("./routes/adminRoutes"))
+app.use("/admin", require("./routes/adminRoutes"))
 app.use("/admin/orders", require("./routes/orderListRoutes"))
 
-app.get("/", (req, res)=>{
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-})
+
 
 app.listen(settings.port, ()=>{
   console.log(`this server is runnning on port ${settings.port}`)
