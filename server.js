@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const morgan = require("morgan")
 const autoIncrement = require('mongoose-auto-increment');
+const expressJwt = require("express-jwt");
 const path = require("path");
+
 const settings = require("./settings");
 
 app.use(morgan("dev"));
@@ -30,7 +33,8 @@ autoIncrement.initialize(connection);
 app.use(express.static(path.resolve(__dirname, "client", "build")));
 app.use("/cupcake", require("./routes/cupcakeRoutes"))
 app.use("/order", require("./routes/orderRoutes"))
-app.use("/admin", require("./routes/adminRoutes"))
+
+app.use("/admin", expressJwt({ secret: settings.secret }), require("./routes/adminRoutes"))
 app.use("/admin/orders", require("./routes/orderListRoutes"))
 
 app.get("/", (req, res)=>{
