@@ -199,10 +199,11 @@ i:hover{
 }
 .cupcakeDescription{
     height: 110px;
-    font-family: 'Poiret One', cursive;
+    font-family: 'Roboto', cursive;
     margin-bottom: 0px;
     padding-left: 7%;
     padding-right: 7%;
+    font-weight: 100;
 
 }
 .cupcakePrice{
