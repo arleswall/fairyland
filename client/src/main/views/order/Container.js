@@ -89,7 +89,7 @@ class OrderContainer extends React.Component {
 
         return (
             <div className="orderReview">
-                <h3>Your order below:</h3>
+                <h3>Seu pedido:</h3>
                 <h2 className="reviewTopBar">Cupcake</h2>
                 <h2 className="reviewTopBar">Quantity</h2>
                 <div>
@@ -98,11 +98,11 @@ class OrderContainer extends React.Component {
                 </div>
                 <hr/>
                 <form className="formularioBox">
-                    <label>Pick Up Date and Time:
+                    <label>Data e horário para retirada:
                     </label>
                     <br/>
                     <Datetime inputProps={{
-                        placeholder: "Date and Time"
+                        placeholder: "Data e horário"
                     }} className="datepicker" locale="pt-br" timeConstraints={{
                         hours: {
                             min: 14,
