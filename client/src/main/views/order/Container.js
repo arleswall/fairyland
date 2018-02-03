@@ -89,9 +89,9 @@ class OrderContainer extends React.Component {
 
         return (
             <div className="orderReview">
-                <h3>Seu pedido:</h3>
+                <h3>Confira seu pedido:</h3>
                 <h2 className="reviewTopBar">Cupcake</h2>
-                <h2 className="reviewTopBar">Quantity</h2>
+                <h2 className="reviewTopBar">Quantidade</h2>
                 <div>
                     {this.generateOrder()}
                     <h4 className="totalCost">Total: R${this.props.order.totalCost}</h4>

@@ -42,7 +42,7 @@ class CupcakesContainer extends React.Component{
           <div className="reviewOrderButtonBox">
             <Link to="/order" style={{alignSelf: "center", display: "flex", justifyContent: "center"}} ><i className="basket fa fa-4x fa-shopping-basket"></i></Link>
             <br/>
-            <Link to="/order" style={{alignSelf: "center", display: "flex", justifyContent: "center"}}><button onClick={()=>{window.scrollTo(0, 0);}}className="reviewOrderButton">Confira Seu Carrinho</button></Link>
+            <Link to="/order" style={{alignSelf: "center", display: "flex", justifyContent: "center"}}><button onClick={()=>{window.scrollTo(0, 0);}}className="reviewOrderButton">Confira seu pedido</button></Link>
           </div>
           </div>
       </div>
