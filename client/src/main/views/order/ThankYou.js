@@ -32,11 +32,11 @@ class ThankYou extends React.Component {
 console.log(this.state)
     return (
       <div className="thankYouBox">
-        <h3>Your order has been confirmed!</h3>
-        <h3>Order Number: {this.state.order._id}</h3>
+        <h3>Seu pedido foi confirmado!</h3>
+        <h3>Número de confirmação: {this.state.order._id}</h3>
         <br/>
           <h4 className="reviewTopBar">Cupcake</h4>
-          <h4 className="reviewTopBar">Quantity</h4>
+          <h4 className="reviewTopBar">Quantidade</h4>
         {this.state.order.items.map(item=>{
           return(
             <div className="reviewOrderBox">
@@ -47,9 +47,9 @@ console.log(this.state)
           )
         })}
         <h4 className="totalCostThankYouPage">Total: R$ {this.state.order.totalCost}</h4>
-        <h3 className="pickUpDay">Pick Up Day:</h3>
+        <h3 className="pickUpDay">Data de retirada:</h3>
         <h4>{newDateFormat}</h4>
-        <h3 className="pickUpDay">Pick Up Time:</h3>
+        <h3 className="pickUpDay">Horário:</h3>
         <h3>{newTimeFormat}</h3>
       </div>
     )

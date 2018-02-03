@@ -21,7 +21,7 @@ function About(){
                 <h5>Florianópolis</h5>
                 <br/>
                 <h4>Como Chegar? Uber?</h4>
-                <h4 className="uber">Clique abaixo</h4>
+                <h4 className="uber">Clique abaixo </h4>
                   <i className="fa fa-map-o" aria-hidden="true"></i> &nbsp; 
                   <i className="fa fa-taxi" aria-hidden="true"></i> &nbsp;
                   <br/>

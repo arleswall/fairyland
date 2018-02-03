@@ -10,7 +10,7 @@ class PaypalButton extends React.Component {
     window.ReactDOM = ReactDOM;
     this.state = {
       showButton: false,
-      env: 'sandbox', // Or 'sandbox'
+      env: 'sandbox', // sandbox fake, production real
       client: {
         sandbox:    'AbLJeEIqN0CMQ2NKrBwUA5ZEH4JWPTMhTbe-6Wu0WfDbb0Zzjz69OEECy5m4lr1eoIKfBYTjPnm3lU6b', // sandbox client ID
         production: 'AUUZW6xTiPMVOnblHpk3MUVepgkoXv9McJN9Of7l6Mu8LpoxbkJxUhRKZw8VnaFx384fOSO3Pbt-zlwY' // production client ID
