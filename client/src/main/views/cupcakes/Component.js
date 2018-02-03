@@ -25,7 +25,7 @@ const testStyles2 = {
         </div> 
           <h4 className="cupcakeDescription">{props.cupcake.description}</h4>
           <br/>
-          <h5 style={props.cupcake.price.regular? testStyles1 : testStyles2} className="cupcakePrice"><span style={props.cupcake.price.regular? show:hide}>Regular: R$ {props.cupcake.price.regular} </span> Mini: R$ {props.cupcake.price.mini}</h5>  
+          <h5 style={props.cupcake.price.regular? testStyles1 : testStyles2} className="cupcakePrice"><span style={props.cupcake.price.regular? show:hide}>Grande: R$ {props.cupcake.price.regular} </span> Mini: R$ {props.cupcake.price.mini}</h5>  
         
             <AddComponent cupcake={props.cupcake}/>
       </div>

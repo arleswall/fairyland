@@ -8,7 +8,7 @@ function About(){
         <h2>Fairyland Café & Cupcakeria® </h2>
         <h2>Fundada em 2010</h2>
           <h2><Emoji text="⏰"/> Ter-Dom, das 14h às 20h </h2>
-          <h2><Emoji text="🐶"/> Pet Friendly Place</h2>
+          <h2><Emoji text="🐶"/> Pet Friendly</h2>
           <h2><Emoji text="☎️"/> (48) 3209-7462 </h2>          
         </div>
         <br/>
@@ -20,8 +20,8 @@ function About(){
                 <h5>Santo Antonio de Lisboa</h5>
                 <h5>Florianópolis</h5>
                 <br/>
-                <h4>Directions or Uber</h4>
-                <h4 className="uber">Click Below </h4>
+                <h4>Como Chegar? Uber?</h4>
+                <h4 className="uber">Clique abaixo</h4>
                   <i className="fa fa-map-o" aria-hidden="true"></i> &nbsp; 
                   <i className="fa fa-taxi" aria-hidden="true"></i> &nbsp;
                   <br/>
